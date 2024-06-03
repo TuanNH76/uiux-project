@@ -46,6 +46,20 @@ router.put('/:id', async (req, res) => {
     }
 });
 
+router.put('/:goalId/kpis', async (req, res) => {
+    try {
+      const { goalId } = req.params;
+      const { kpiId } = req.body;
+      const goal = await Goal.findById(goalId);
+      goal.kpis.push(kpiId);
+      await goal.save();
+      res.status(200).send(goal);
+    } catch (error) {
+      res.status(500).send(error);
+    }
+  });
+  
+
 // Delete a Goal
 router.delete('/:id', async (req, res) => {
     try {

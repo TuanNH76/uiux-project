@@ -1,5 +1,7 @@
 const express = require('express');
 const bodyParser = require('body-parser');
+const cors = require('cors'); // Import cors middleware
+
 const kpiRoutes = require('./routes/kpi');
 const goalRoutes = require('./routes/goal');
 const taskRoutes = require('./routes/task');
@@ -7,13 +9,14 @@ const evaluationRoutes = require('./routes/evaluation');
 
 const app = express();
 app.use(bodyParser.json());
+app.use(cors());
 
 require('./models'); // Khởi tạo kết nối MongoDB và load các models
 
-app.use('/kpis', kpiRoutes);
-app.use('/goals', goalRoutes);
-app.use('/tasks', taskRoutes);
-app.use('/evaluations', evaluationRoutes);
+app.use('/api/kpis', kpiRoutes);
+app.use('/api/goals', goalRoutes);
+app.use('/api/tasks', taskRoutes);
+app.use('/api/evaluations', evaluationRoutes);
 
 const PORT = process.env.PORT || 8080;
 app.listen(PORT, () => {
