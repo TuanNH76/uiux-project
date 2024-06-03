@@ -1,5 +1,4 @@
-import {Schema, model} from "mongoose";
-const Schema = mongoose.Schema;
+const { Schema, model } = require('mongoose');
 
 const EvaluationSchema = new Schema({
     type: {
