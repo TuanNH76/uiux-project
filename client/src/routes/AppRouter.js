@@ -5,7 +5,7 @@ import Dashboard from '../pages/dashboard/Dashboard';
 import Tracking from '../pages/tracking/Tracking';
 import KPI from '../pages/kpi/KPI';
 import Task from '../pages/task/Task';
-import Goal from '../pages/goal/Goal';
+import Goal from '../pages/goal/GoalPage';
 import Schedule from '../pages/schedule/Schedule';
 import Setting from '../pages/setting/Setting';
 import { FaBars } from 'react-icons/fa';
@@ -30,10 +30,10 @@ function AppRouter() {
             <Routes>
               <Route path="/" element={<Dashboard />} />
               <Route path="/tracking" element={<Tracking />} />
-              <Route path="/kpi" element={<KPI />} />
-              <Route path="/task" element={<Task />} />
+              <Route path="/kpis" element={<KPI />} />
+              <Route path="/tasks" element={<Task />} />
               <Route path="/schedule" element={<Schedule />} />
-              <Route path="/goal" element={<Goal />} />
+              <Route path="/goals" element={<Goal />} />
               <Route path="/setting" element={<Setting />} />
             </Routes>
           </div>

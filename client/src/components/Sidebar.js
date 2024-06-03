@@ -16,11 +16,11 @@ const Sidebar = ({ isCollapsed }) => {
           <FaChartLine />
           <ListItemText primary="Tracking" />
         </ListItem>
-        <ListItem button className="sidebar-item" component={Link} to="/kpi">
+        <ListItem button className="sidebar-item" component={Link} to="/kpis">
           <FaTasks />
           <ListItemText primary="KPI" />
         </ListItem>
-        <ListItem button className="sidebar-item" component={Link} to="/task">
+        <ListItem button className="sidebar-item" component={Link} to="/tasks">
           <FaTasks />
           <ListItemText primary="Task" />
         </ListItem>
@@ -28,9 +28,13 @@ const Sidebar = ({ isCollapsed }) => {
           <FaCalendarAlt />
           <ListItemText primary="Schedule" />
         </ListItem>
-        <ListItem button className="sidebar-item" component={Link} to="/inbox">
+        <ListItem button className="sidebar-item" component={Link} to="/goals">
           <FaEnvelope />
-          <ListItemText primary="Inbox" />
+          <ListItemText primary="Goal" />
+        </ListItem>
+        <ListItem button className="sidebar-item" component={Link} to="/evaluations">
+          <FaCog />
+          <ListItemText primary="Evaluation" />
         </ListItem>
         <ListItem button className="sidebar-item" component={Link} to="/setting">
           <FaCog />
