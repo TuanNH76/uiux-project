@@ -35,10 +35,11 @@
   width: 20rem;
   margin-bottom: 20px;
   transition: all 0.3s ease;
+  background-color: #8380FE; /* Default background color */
 }
 
 .task-widget.completed {
-  background-color: #8380FE; /* Background color when task is completed */
+  background-color: #fff; /* Background color when task is completed */
 }
 
 .task-widget:hover {

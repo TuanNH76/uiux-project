@@ -16,9 +16,10 @@ const KPIDetailPage = () => {
             if (kpi) {
                 const initialTasks = kpi.task;
                 const updatedTasks = initialTasks.sort((a, b) => {
-                    return a.completed === b.completed ? 0 : a.completed ? -1 : 1;
+                    return a.completed === b.completed ? 0 : a.completed ? 1 : -1;
                 });
                 setTasks(updatedTasks);
+                setSelectedOptionalTasks(kpi.numberOfOptionalsToDo); // Initialize state with numberOfOptionalsToDo
             }
         }
     }, [goal, kpiId]);
@@ -32,7 +33,7 @@ const KPIDetailPage = () => {
         });
 
         updatedTasks.sort((a, b) => {
-            return a.completed === b.completed ? 0 : a.completed ? -1 : 1;
+            return a.completed === b.completed ? 0 : a.completed ? 1 : -1;
         });
 
         setTasks(updatedTasks);
@@ -45,7 +46,26 @@ const KPIDetailPage = () => {
     };
 
     const handleOptionalTaskSelection = (event) => {
-        setSelectedOptionalTasks(parseInt(event.target.value));
+        const newSelectedValue = parseInt(event.target.value);
+        setSelectedOptionalTasks(newSelectedValue);
+
+        const updatedGoal = goalData.map(g => {
+            if (g.id === goalId) {
+                return {
+                    ...g,
+                    kpis: g.kpis.map(kpi => {
+                        if (kpi.id === kpiId) {
+                            return {
+                                ...kpi,
+                                numberOfOptionalsToDo: newSelectedValue
+                            };
+                        }
+                        return kpi;
+                    })
+                };
+            }
+            return g;
+        });
     };
 
     if (!goal) {
