@@ -11,6 +11,7 @@ import Setting from '../pages/setting/Setting';
 import { FaBars } from 'react-icons/fa';
 import Navbar from '../components/Navbar';
 import GoalDetailPage from '../pages/goal/GoalDetailPage';
+import KPIDetailPage from '../pages/goal/KPIDetailPage';
 import '../App';
 
 function AppRouter() {
@@ -36,6 +37,7 @@ function AppRouter() {
             <Route path="/schedule" element={<Schedule />} />
             <Route path="/goals" element={<Goal />} />
             <Route path="/goals/:id" element={<GoalDetailPage />} />
+            <Route path="/goals/:goalId/:kpiId" element={<KPIDetailPage />} />
             <Route path="/setting" element={<Setting />} />
           </Routes>
         </div>

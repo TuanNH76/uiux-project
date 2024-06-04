@@ -1,22 +1,46 @@
 import React from 'react';
-import { useParams } from 'react-router-dom'; // Sử dụng useParams từ react-router-dom
-
+import { useParams, Link } from 'react-router-dom'; // Import Link
 import { goalData } from '../../Data/GoalData';
+import './GoalDetailPage.css';
 
 const GoalDetailPage = () => {
     const { id } = useParams(); // Sử dụng useParams để lấy id từ URL
-    const goal = goalData.find(item => item.id === parseInt(id));
+    const goal = goalData.find(item => item.id === id);
 
     if (!goal) {
         return <p>Goal not found!</p>;
     }
 
     return (
-        <div>
+        <div className="goal-detail">
+            <div className="nav-container">
+                <div className="nav">
+                    <Link to="/goals">Goals</Link>
+                    <span>/</span>
+                    <Link to={`/goals/${goal.id}`}>{goal.title}</Link> {/* Sử dụng template string để tạo URL động */}
+                </div>
+            </div>
             <h2>{goal.title}</h2>
             <p><strong>Role:</strong> {goal.role}</p>
             <p><strong>Description:</strong> {goal.description}</p>
-            {/* Display other details as needed */}
+            <h3>KPIs:</h3>
+            <div className="kpi-list">
+                {goal.kpis.map((kpi) => {
+                    return (
+                        <Link key={kpi.id} to={`/goals/${goal.id}/${kpi.id}`} className="goal-link">
+                            <div className="kpi-widget">
+                                <h4>{kpi.name}</h4>
+                                <p>Number of Required Tasks: {kpi.task.filter(task => task.type === 'Required').length}</p>
+                                <p>Number of Optional Tasks: {kpi.task.filter(task => task.type === 'Optional').length}</p>
+                                <p>Score: {kpi.score}%</p>
+                                <div className="kpi-chart-container">
+                                    <div className="kpi-chart" style={{ width: `${kpi.score}%` }}></div>
+                                </div>
+                            </div>
+                        </Link>
+                    )
+                })}
+            </div>
         </div>
     );
 };
