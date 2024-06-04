@@ -88,3 +88,21 @@
 .optional-tasks-select select {
   margin-right: 5px; /* Space between the dropdown and the text */
 }
+
+/* KPI Chart Styles */
+.kpi-chart-container {
+  margin-top: 10px;
+}
+
+.kpi-chart {
+  height: 20px;
+  background-color: #4CAF50; /* Green color for the chart */
+  border-radius: 5px;
+  transition: width 0.3s ease;
+}
+
+.kpi-chart-container p {
+  margin-top: 5px;
+  font-size: 14px;
+  color: #555;
+}

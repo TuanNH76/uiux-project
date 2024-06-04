@@ -9,6 +9,7 @@ const KPIDetailPage = () => {
 
     const [tasks, setTasks] = useState([]);
     const [selectedOptionalTasks, setSelectedOptionalTasks] = useState(0);
+    const [score, setScore] = useState(0); // State for KPI score
 
     useEffect(() => {
         if (goal) {
@@ -18,6 +19,7 @@ const KPIDetailPage = () => {
                 const updatedTasks = initialTasks.sort(sortTasks);
                 setTasks(updatedTasks);
                 setSelectedOptionalTasks(kpi.numberOfOptionalsToDo); // Initialize state with numberOfOptionalsToDo
+                calculateScore(updatedTasks, kpi.numberOfOptionalsToDo); // Calculate initial score
             }
         }
     }, [goal, kpiId]);
@@ -45,6 +47,7 @@ const KPIDetailPage = () => {
         updatedTasks.sort(sortTasks);
 
         setTasks(updatedTasks);
+        calculateScore(updatedTasks, selectedOptionalTasks); // Recalculate score on task completion
     };
 
     const countCompletedTasks = (type) => {
@@ -74,6 +77,36 @@ const KPIDetailPage = () => {
             }
             return g;
         });
+
+        calculateScore(tasks, newSelectedValue); // Recalculate score on optional task selection
+    };
+
+    const calculateScore = (tasks, numberOfOptionalsToDo) => {
+        const requiredTasks = tasks.filter(task => task.type === 'Required');
+        const optionalTasks = tasks.filter(task => task.type === 'Optional');
+        const completedRequiredTasks = requiredTasks.filter(task => task.completed).length;
+        const completedOptionalTasks = optionalTasks.filter(task => task.completed).length;
+
+        let totalScore = 0;
+
+        if (numberOfOptionalsToDo === 0) {
+            totalScore += (completedRequiredTasks / requiredTasks.length) * 100;
+            totalScore += completedOptionalTasks;
+        } else {
+            const requiredScore = 80 * (completedRequiredTasks / requiredTasks.length);
+            let optionalScore = 0;
+
+            if (completedOptionalTasks >= numberOfOptionalsToDo) {
+                optionalScore = 20;
+            } else {
+                optionalScore = (completedOptionalTasks / numberOfOptionalsToDo) * 20;
+                optionalScore += (completedOptionalTasks - numberOfOptionalsToDo) * 1;
+            }
+
+            totalScore = requiredScore + optionalScore;
+        }
+
+        setScore(totalScore);
     };
 
     const formatDate = (dateString) => {
@@ -113,6 +146,10 @@ const KPIDetailPage = () => {
                 </div>
             </div>
             <h2>{kpi.name}</h2>
+            <p>{score.toFixed(2)}/100</p>
+            <div className="kpi-chart-container">
+                <div className="kpi-chart" style={{ width: `${score}%` }}></div>
+            </div>
             <div className="task-list">
                 <div className="required-tasks">
                     <h3>Required Tasks ({countCompletedTasks('Required')})</h3>
