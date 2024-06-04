@@ -15,14 +15,24 @@ const KPIDetailPage = () => {
             const kpi = goal.kpis.find(kpi => kpi.id === kpiId);
             if (kpi) {
                 const initialTasks = kpi.task;
-                const updatedTasks = initialTasks.sort((a, b) => {
-                    return a.completed === b.completed ? 0 : a.completed ? 1 : -1;
-                });
+                const updatedTasks = initialTasks.sort(sortTasks);
                 setTasks(updatedTasks);
                 setSelectedOptionalTasks(kpi.numberOfOptionalsToDo); // Initialize state with numberOfOptionalsToDo
             }
         }
     }, [goal, kpiId]);
+
+    const sortTasks = (a, b) => {
+        const now = new Date();
+        const isAOverdue = new Date(a.to) < now && !a.completed;
+        const isBOverdue = new Date(b.to) < now && !b.completed;
+
+        if (isAOverdue && !isBOverdue) return -1;
+        if (!isAOverdue && isBOverdue) return 1;
+        if (!a.completed && b.completed) return -1;
+        if (a.completed && !b.completed) return 1;
+        return 0;
+    };
 
     const handleTaskCompletion = (taskId) => {
         const updatedTasks = tasks.map(task => {
@@ -32,9 +42,7 @@ const KPIDetailPage = () => {
             return task;
         });
 
-        updatedTasks.sort((a, b) => {
-            return a.completed === b.completed ? 0 : a.completed ? 1 : -1;
-        });
+        updatedTasks.sort(sortTasks);
 
         setTasks(updatedTasks);
     };
@@ -66,6 +74,14 @@ const KPIDetailPage = () => {
             }
             return g;
         });
+    };
+
+    const formatDate = (dateString) => {
+        const date = new Date(dateString);
+        const day = String(date.getDate()).padStart(2, '0');
+        const month = String(date.getMonth() + 1).padStart(2, '0'); // Months are 0-based
+        const year = date.getFullYear();
+        return `${day}/${month}/${year}`;
     };
 
     if (!goal) {
@@ -103,7 +119,7 @@ const KPIDetailPage = () => {
                     {tasks
                         .filter(task => task.type === 'Required')
                         .map(task => (
-                            <div key={task.id} className={`task-widget ${task.completed ? 'completed' : ''}`}>
+                            <div key={task.id} className={`task-widget ${task.completed ? 'completed' : new Date(task.to) < new Date() ? 'overdue' : ''}`}>
                                 <div className="checkbox-container">
                                     <input
                                         type="checkbox"
@@ -113,7 +129,7 @@ const KPIDetailPage = () => {
                                     />
                                     <div className="task-info">
                                         <p>{task.name}</p>
-                                        <p>{task.from} - {task.to}</p>
+                                        <p>{formatDate(task.to)}</p>
                                     </div>
                                 </div>
                             </div>
@@ -130,7 +146,7 @@ const KPIDetailPage = () => {
                     {tasks
                         .filter(task => task.type === 'Optional')
                         .map(task => (
-                            <div key={task.id} className={`task-widget ${task.completed ? 'completed' : ''}`}>
+                            <div key={task.id} className={`task-widget ${task.completed ? 'completed' : new Date(task.to) < new Date() ? 'overdue' : ''}`}>
                                 <div className="checkbox-container">
                                     <input
                                         type="checkbox"
@@ -140,7 +156,7 @@ const KPIDetailPage = () => {
                                     />
                                     <div className="task-info">
                                         <p>{task.name}</p>
-                                        <p>{task.from} - {task.to}</p>
+                                        <p>{formatDate(task.to)}</p>
                                     </div>
                                 </div>
                             </div>

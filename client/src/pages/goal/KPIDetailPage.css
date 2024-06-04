@@ -28,7 +28,7 @@
 
 .task-widget {
   display: flex;
-  align-items: center; /* Aligns checkbox and content on the same line */
+  align-items: center;
   padding: 10px;
   border: 1px solid #ccc;
   border-radius: 4px;
@@ -40,6 +40,10 @@
 
 .task-widget.completed {
   background-color: #fff; /* Background color when task is completed */
+}
+
+.task-widget.overdue:not(.completed) {
+  background-color: #FF6B57; /* Background color for overdue tasks */
 }
 
 .task-widget:hover {
