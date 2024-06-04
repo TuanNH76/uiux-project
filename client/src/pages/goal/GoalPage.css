@@ -1,0 +1,113 @@
+/* GoalPage.css */
+.container {
+    display: flex;
+    /* justify-content: space-between;  */
+    gap: 100px; /* Khoảng cách giữa các phần tử */
+}
+
+.goal-container {
+    width: 50%; /* Điều chỉnh chiều rộng container theo ý muốn của bạn, ví dụ: 50% */
+    margin: 0; /* Loại bỏ căn giữa */
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+  }
+  
+  h2 {
+    text-align: left; /* Căn tiêu đề sang bên trái */
+    margin-bottom: 20px;
+  }
+  
+  form {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* Căn các phần tử của form sang bên trái */
+  }
+  
+  form > div {
+    margin-bottom: 15px;
+    width: 100%; /* Đảm bảo các phần tử con có chiều rộng đầy đủ */
+  }
+  
+  label {
+    margin-bottom: 5px;
+    display: block;
+  }
+  
+  label.required::after {
+    content: '*';
+    color: red;
+    margin-left: 5px;
+  }
+  
+  input, textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+  }
+  
+  textarea {
+    resize: vertical;
+    height: 100px;
+  }
+  
+  button {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    background-color: #007bff;
+    color: white;
+    cursor: pointer;
+    font-size: 16px;
+  }
+  
+  button:hover {
+    background-color: #0056b3;
+  }
+  
+  .widget {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.icon {
+  font-size: 24px;
+  margin-right: 10px;
+}
+
+.kpi {
+  font-weight: bold;
+}
+
+.kpiItem {
+    margin-bottom: 10px;
+  }
+  
+  .widget {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: #f9f9f9;
+    width: 20rem; /* Sử dụng 'rem' thay vì '%' */
+    transition: all 0.3s ease; /* Hiệu ứng hover */
+  }
+  
+  .widget:hover {
+    background-color: #eaeaea; /* Màu nền khi hover */
+  }
+    
+  .icon {
+    font-size: 24px;
+    margin-right: 10px;
+  }
+  
+  .name {
+    font-size: 16px;
+  }
+  

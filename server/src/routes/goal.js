@@ -4,8 +4,8 @@ const { Goal } = require('../models');
 
 // Create a Goal
 router.post('/', async (req, res) => {
-    const { name, description, start_date, end_date, kpis } = req.body;
-    const goal = new Goal({ name, description, start_date, end_date, kpis });
+    const { title, description, from, to, kpis } = req.body;
+    const goal = new Goal({ title, description, from, to, kpis });
     try {
         const savedGoal = await goal.save();
         res.json(savedGoal);

@@ -56,7 +56,7 @@ body {
 .content {
   margin-top: 60px; /* Adjust for navbar height */
   margin-left: 250px; /* Adjust for sidebar width */
-  padding: 20px;
+  padding: 42px;
   transition: margin-left 0.3s;
   width: calc(100% - 250px);
 }
