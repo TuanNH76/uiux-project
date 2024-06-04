@@ -17,12 +17,12 @@ const KPISchema = new Schema({
         enum: ['one-time', 'recurring'],
         required: true
     },
-    start_date: {
-        type: Date,
+    from: {
+        type: String,
         required: true
     },
-    end_date: {
-        type: Date,
+    to: {
+        type: String,
         required: true
     },
     frequency: {
@@ -32,7 +32,7 @@ const KPISchema = new Schema({
             return this.type === 'recurring';
         }
     },
-    evaluations: [EvaluationSchema],
+    evaluation: EvaluationSchema,
     tasks: [TaskSchema]
 });
 

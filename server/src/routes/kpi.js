@@ -4,8 +4,8 @@ const { KPI } = require('../models');
 
 // Create a KPI
 router.post('/', async (req, res) => {
-    const { title, description, type, start_date, end_date, frequency, evaluations, tasks } = req.body;
-    const kpi = new KPI({ title, description, type, start_date, end_date, frequency, evaluations, tasks });
+    const { title, description, type, from, to, frequency, evaluation, tasks } = req.body;
+    const kpi = new KPI({ title, description, type, from, to, frequency, evaluation, tasks });
     try {
         const savedKPI = await kpi.save();
         res.json(savedKPI);

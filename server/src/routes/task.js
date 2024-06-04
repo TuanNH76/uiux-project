@@ -4,8 +4,8 @@ const { Task } = require('../models');
 
 // Create a Task
 router.post('/', async (req, res) => {
-    const { name, description, isRequired, isCompleted } = req.body;
-    const task = new Task({ name, description, isRequired, isCompleted });
+    const { name, description, type, from, to, isCompleted } = req.body;
+    const task = new Task({ name, description, type, from, to, isCompleted });
     try {
         const savedTask = await task.save();
         res.json(savedTask);

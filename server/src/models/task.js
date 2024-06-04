@@ -10,8 +10,8 @@ const TaskSchema = new Schema({
         required: true
     },
     type: { type: String, enum: ['required', 'optional'] },
-    start_date: Date,
-    end_date: Date,
+    from: String,
+    to: String,
     isCompleted: {
         type: Boolean,
         default: false
