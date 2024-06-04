@@ -1,113 +1,103 @@
-/* GoalPage.css */
-.container {
-    display: flex;
-    /* justify-content: space-between;  */
-    gap: 100px; /* Khoảng cách giữa các phần tử */
+.goal-page {
+  padding: 20px;
 }
 
-.goal-container {
-    width: 50%; /* Điều chỉnh chiều rộng container theo ý muốn của bạn, ví dụ: 50% */
-    margin: 0; /* Loại bỏ căn giữa */
-    padding: 20px;
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    background-color: #f9f9f9;
-  }
-  
-  h2 {
-    text-align: left; /* Căn tiêu đề sang bên trái */
-    margin-bottom: 20px;
-  }
-  
-  form {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start; /* Căn các phần tử của form sang bên trái */
-  }
-  
-  form > div {
-    margin-bottom: 15px;
-    width: 100%; /* Đảm bảo các phần tử con có chiều rộng đầy đủ */
-  }
-  
-  label {
-    margin-bottom: 5px;
-    display: block;
-  }
-  
-  label.required::after {
-    content: '*';
-    color: red;
-    margin-left: 5px;
-  }
-  
-  input, textarea {
-    width: 100%;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    box-sizing: border-box;
-  }
-  
-  textarea {
-    resize: vertical;
-    height: 100px;
-  }
-  
-  button {
-    padding: 10px 15px;
-    border: none;
-    border-radius: 4px;
-    background-color: #007bff;
-    color: white;
-    cursor: pointer;
-    font-size: 16px;
-  }
-  
-  button:hover {
-    background-color: #0056b3;
-  }
-  
-  .widget {
-  display: flex;
-  align-items: center;
+h1 {
+  text-align: center;
   margin-bottom: 20px;
 }
 
-.icon {
-  font-size: 24px;
-  margin-right: 10px;
+h3 {
+  text-align: left;
+  margin-top: 30px;
 }
 
-.kpi {
+.goal-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+
+.goal-widget {
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 20px;
+  width: 250px;
+  background-color: #f9f9f9;
+  text-align: center;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.chart-container {
+  position: relative;
+  width: 100%;
+  height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.chart-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 1.2em;
   font-weight: bold;
 }
 
-.kpiItem {
-    margin-bottom: 10px;
-  }
-  
-  .widget {
-    display: flex;
-    align-items: center;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    background-color: #f9f9f9;
-    width: 20rem; /* Sử dụng 'rem' thay vì '%' */
-    transition: all 0.3s ease; /* Hiệu ứng hover */
-  }
-  
-  .widget:hover {
-    background-color: #eaeaea; /* Màu nền khi hover */
-  }
-    
-  .icon {
-    font-size: 24px;
-    margin-right: 10px;
-  }
-  
-  .name {
-    font-size: 16px;
-  }
-  
+/* Đặt nút bấm và chữ gần nhau */
+.button-container {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+button {
+  padding: 10px 15px;
+  border: none;
+  border-radius: 4px;
+  background-color: #007bff;
+  color: white;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+.goal-header {
+  margin-right: 10px;
+}
+.nav {
+  margin-bottom: 20px;
+}
+
+.nav a {
+  text-decoration: none;
+  color: #007bff;
+}
+
+.nav span {
+  margin: 0 5px;
+  color: #777;
+}
+
+.goal-link {
+  text-decoration: none;
+  color: inherit;
+}
+
+.goal-link:hover .goal-widget {
+  transform: translateY(-5px);
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.nav-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-bottom: 20px;
+}

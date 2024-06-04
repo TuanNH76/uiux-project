@@ -1,118 +1,100 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
+import { Doughnut } from 'react-chartjs-2';
+import { Chart, ArcElement, Tooltip, Legend } from 'chart.js';
+import GoalDetailPage from './GoalDetailPage';
 import './GoalPage.css';
+import { goalData } from '../../Data/GoalData.js';
+Chart.register(ArcElement, Tooltip, Legend);
 
 const GoalPage = () => {
-  const [formData, setFormData] = useState({
-    title: '',
-    from: '',
-    to: '',
-    role: '',
-    description: '',
-  });
 
-  const kpiList = [
-    { id: 1, name: 'KPI 1' },
-    { id: 2, name: 'KPI 2' },
-    { id: 3, name: 'KPI 3' },
-    // Thêm dữ liệu KPI tương ứng vào đây
-  ];
+    const [goals, setGoals] = useState(goalData);
 
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData({
-      ...formData,
-      [name]: value,
-    });
-  };
+    const [showCompleted, setShowCompleted] = useState(false);
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    console.log(formData);
-  };
+    const calculateKPICompletion = (kpis) => {
+        const totalKpis = kpis.length;
+        const completedKpis = kpis.filter(kpi => kpi.completed).length;
+        return { totalKpis, completedKpis };
+    };
 
-  return (
-    <div className="container">
-    <div className="goal-container">
-      <h2>New Goal</h2>
-      <div className="row">
-        <div className="column">
-          <h3>Goal information</h3>
-          <form onSubmit={handleSubmit}>
-            <div>
-              <label htmlFor="title" className="required">Title</label>
-              <input
-                type="text"
-                id="title"
-                name="title"
-                value={formData.title}
-                onChange={handleChange}
-                required
-              />
+    const isGoalCompleted = (goal) => {
+        const { totalKpis, completedKpis } = calculateKPICompletion(goal.kpis);
+        return totalKpis === completedKpis;
+    };
+
+    const renderKPIChart = (kpis) => {
+        const { totalKpis, completedKpis } = calculateKPICompletion(kpis);
+        const data = {
+            labels: ['Completed', 'Remaining'],
+            datasets: [
+                {
+                    data: [completedKpis, totalKpis - completedKpis],
+                    backgroundColor: ['#36A2EB', '#FF6384'],
+                    hoverBackgroundColor: ['#36A2EB', '#FF6384'],
+                },
+            ],
+        };
+
+        const options = {
+            plugins: {
+                tooltip: {
+                    enabled: false,
+                },
+            },
+            responsive: true,
+            maintainAspectRatio: false,
+        };
+
+        return (
+            <div className="chart-container">
+                <Doughnut data={data} options={options} />
+                <div className="chart-text">{completedKpis} / {totalKpis}</div>
             </div>
-            <div>
-              <label htmlFor="from" className="required">From</label>
-              <input
-                type="datetime-local"
-                id="from"
-                name="from"
-                value={formData.from}
-                onChange={handleChange}
-                required
-              />
+        );
+    };
+
+    const formatDate = (dateString) => {
+        const options = { day: '2-digit', month: '2-digit', year: 'numeric' };
+        return new Date(dateString).toLocaleDateString('en-GB', options);
+    };
+
+    const completedGoals = goals.filter(isGoalCompleted);
+    const incompleteGoals = goals.filter(goal => !isGoalCompleted(goal));
+
+    const goalsToDisplay = showCompleted ? completedGoals : incompleteGoals;
+    const toggleGoals = () => setShowCompleted(!showCompleted);
+
+    return (
+        <div className="goal-page">
+            <div className="nav-container">
+                <div className="nav">
+                    <Link to="/goals">Goals</Link>
+                    <span>/</span>
+                </div>
+                <div className="button-container">
+                    <button onClick={toggleGoals}>
+                        {showCompleted ? 'Show Incomplete Goals' : 'Show Completed Goals'}
+                    </button>
+                </div>
             </div>
-            <div>
-              <label htmlFor="to" className="required">To</label>
-              <input
-                type="datetime-local"
-                id="to"
-                name="to"
-                value={formData.to}
-                onChange={handleChange}
-                required
-              />
+            <div className="goal-list">
+                {goalsToDisplay.map((goal) => {
+                    return (
+                        <Link key={goal.id} to={`/goals/${goal.id}`} className="goal-link">
+                            <div className="goal-widget">
+                                <h4>{goal.title}</h4>
+                                <p><strong>End Time:</strong> {formatDate(goal.to)}</p>
+                                <p><strong>Role:</strong> {goal.role}</p>
+                                {renderKPIChart(goal.kpis)}
+                            </div>
+                        </Link>
+                    );
+                })}
             </div>
-            <div>
-              <label htmlFor="role">Role</label>
-              <input
-                type="text"
-                id="role"
-                name="role"
-                value={formData.role}
-                onChange={handleChange}
-              />
-            </div>
-            <div>
-              <label htmlFor="description">Description</label>
-              <textarea
-                id="description"
-                name="description"
-                value={formData.description}
-                onChange={handleChange}
-              ></textarea>
-            </div>
-            <button type="submit">Submit</button>
-          </form>
         </div>
-      </div>      
-    </div>
-    <div className="kpis">
-        <h3>KPIs</h3>
-        <div className="kpiList">
-          {kpiList.map(kpi => (
-            <div className="kpiItem" key={kpi.id}>
-              <div className="widget">
-              <div className="icon">🔑</div>
-              <div className="name">{kpi.name}</div>
-            </div>
-          </div>
-          ))}
-         <button type="submit">New KPI</button>
-    </div>
-  </div>
-  </div>
-
-    
-  );
+    );
 };
 
 export default GoalPage;
