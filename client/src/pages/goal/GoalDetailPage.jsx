@@ -26,10 +26,25 @@ const GoalDetailPage = () => {
             <h3>KPIs:</h3>
             <div className="kpi-list">
                 {goal.kpis.map((kpi) => {
+                    let kpiLink = '';
+                    switch (kpi.typeKPI) {
+                        case 'To-do':
+                            kpiLink = `/goals/${goal.id}/todo/${kpi.id}`;
+                            break;
+                        case 'Quantity':
+                            kpiLink = `/goals/${goal.id}/quantity/${kpi.id}`;
+                            break;
+                        case 'Weighted':
+                            kpiLink = `/goals/${goal.id}/weighted/${kpi.id}`;
+                            break;
+                        default:
+                            kpiLink = `/goals/${goal.id}/${kpi.id}`;
+                            break;
+                    }
                     return (
                         <Link
                             key={kpi.id}
-                            to={kpi.typeKPI === 'To-do' ? `/goals/${goal.id}/todo/${kpi.id}` : `/goals/${goal.id}/${kpi.id}`}
+                            to={kpiLink}
                             className="goal-link"
                         >
                             <div className="kpi-widget">
