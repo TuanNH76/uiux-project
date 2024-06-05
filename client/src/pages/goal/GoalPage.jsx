@@ -13,7 +13,7 @@ const GoalPage = () => {
 
     useEffect(() => {
         const storedGoalData = JSON.parse(localStorage.getItem('goalData'));
-        setGoals(storedGoalData || []); 
+        setGoals(storedGoalData || []);
     }, []);
 
     const calculateKPICompletion = (kpis) => {

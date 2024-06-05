@@ -35,8 +35,8 @@ export const goalData = [
             {
                 id: "K2",
                 name: 'KPI 2',
-                completed: true,
-                score: 110,
+                completed: false,
+                score: 25,
                 from: '2023-06-01T10:00',
                 to: '2023-12-31T18:00',
                 target: 1000,
@@ -45,8 +45,8 @@ export const goalData = [
                 split: "W",
                 typeKPI: KPI_TYPE.QUANTITY_KPI,
                 task: [
-                    { id: "W1", name: 'Week 1', quantity: 250, completed: true, type: "Required", from: '2024-06-01T00:00', to: '2024-06-06T00:00', link: "https://shorturl.at/uJl78" },
-                    { id: "W2", name: 'Week 2', quantity: 250, completed: true, type: "Required", from: '2024-06-07T00:00', to: '2024-06-014T00:00', link: "https://shorturl.at/uJl78" },
+                    { id: "W1", name: 'Week 1', quantity: 250, completed: false, type: "Required", from: '2024-06-01T00:00', to: '2024-06-04T00:00', link: "https://shorturl.at/uJl78" },
+                    { id: "W2", name: 'Week 2', quantity: 250, completed: true, type: "Required", from: '2024-06-07T00:00', to: '2024-06-14T00:00', link: "https://shorturl.at/uJl78" },
                     { id: "W3", name: 'Week 3', quantity: 250, completed: false, type: "Required", from: '2024-06-15T00:00', to: '2024-06-21T00:00', link: "https://shorturl.at/uJl78" },
                     { id: "W4", name: 'Week 4', quantity: 250, completed: false, type: "Required", from: '2024-06-22T00:00', to: '2024-06-30T00:00', link: "https://shorturl.at/uJl78" },
                 ],
