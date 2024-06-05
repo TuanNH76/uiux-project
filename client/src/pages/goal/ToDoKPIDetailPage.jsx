@@ -40,9 +40,9 @@ const ToDoKPIDetailPage = () => {
         }
     }, [localStorage.getItem('goalData')]);
 
-    const updateLocalStorage = (data) => {
-        const updatedGoalData = [...storedGoalData];
-        updatedGoalData[goalIndex] = data;
+    const updateLocalStorage = (updatedGoal) => {
+        const updatedGoalData = JSON.parse(localStorage.getItem('goalData')); // Reload the updated goal data
+        updatedGoalData[goalIndex] = updatedGoal;
         localStorage.setItem('goalData', JSON.stringify(updatedGoalData));
     };
 
@@ -68,6 +68,7 @@ const ToDoKPIDetailPage = () => {
 
         updatedTasks.sort(sortTasks);
 
+        const updatedScore = calculateScore(updatedTasks, selectedOptionalTasks);
         setTasks(updatedTasks);
         const updatedGoal = {
             ...goal,
@@ -76,7 +77,8 @@ const ToDoKPIDetailPage = () => {
                     return {
                         ...kpi,
                         task: updatedTasks, // Update tasks in the kpi
-                        score: calculateScore(updatedTasks, selectedOptionalTasks)
+                        score: updatedScore,
+                        completed: updatedScore >= 100
                     };
                 }
                 return kpi;
@@ -95,6 +97,7 @@ const ToDoKPIDetailPage = () => {
         const newSelectedValue = parseInt(event.target.value);
         setSelectedOptionalTasks(newSelectedValue);
 
+        const updatedScore = calculateScore(tasks, newSelectedValue);
         const updatedGoal = {
             ...goal,
             kpis: goal.kpis.map(kpi => {
@@ -102,7 +105,8 @@ const ToDoKPIDetailPage = () => {
                     return {
                         ...kpi,
                         numberOfOptionalsToDo: newSelectedValue,
-                        score: calculateScore(tasks, newSelectedValue)
+                        score: updatedScore,
+                        completed: updatedScore >= 100
                     };
                 }
                 return kpi;
@@ -201,7 +205,9 @@ const ToDoKPIDetailPage = () => {
                                     <div className="task-info">
                                         <p>{task.name}</p>
                                         <p>End date: {formatDate(task.to)}</p>
-                                        <a href={task.link} target="_blank" rel="noopener noreferrer">Link</a>
+                                        <a href={task.link} target="_blank" rel="noopener noreferrer">
+                                            <i className="fas fa-link"></i> Link
+                                        </a>
                                     </div>
                                 </div>
                             </div>
@@ -229,7 +235,9 @@ const ToDoKPIDetailPage = () => {
                                     <div className="task-info">
                                         <p>{task.name}</p>
                                         <p>End date: {formatDate(task.to)}</p>
-                                        <a href={task.link} target="_blank" rel="noopener noreferrer">Link</a>
+                                        <a href={task.link} target="_blank" rel="noopener noreferrer">
+                                            <i className="fas fa-link"></i> Link
+                                        </a>
                                     </div>
                                 </div>
                             </div>
