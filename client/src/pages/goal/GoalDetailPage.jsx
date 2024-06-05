@@ -1,6 +1,6 @@
 import React from 'react';
 import { useParams, Link } from 'react-router-dom';
-import './GoalDetailPage.css';
+import './style.css';
 
 const GoalDetailPage = () => {
     const { id } = useParams(); // Lấy id từ URL

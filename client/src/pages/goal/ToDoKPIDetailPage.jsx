@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
-import './ToDoKPIDetailPage.css';
-
+import './style.css';
 const ToDoKPIDetailPage = () => {
     const { goalId, kpiId } = useParams();
     const storedGoalData = JSON.parse(localStorage.getItem('goalData')); // Lấy dữ liệu từ localStorage

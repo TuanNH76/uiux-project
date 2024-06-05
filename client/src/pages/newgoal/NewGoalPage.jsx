@@ -101,16 +101,16 @@ const NewGoalPage = () => {
   };
 
   return (
-    <div className='container'>
-      <div className="newGoal-container">
-        <div className="goal-container">
+    <div className='new-container'>
+      <div className="new-newGoal-container">
+        <div className="new-goal-container">
           <h2>New Goal</h2>
-          <div className="row">
-            <div className="column">
+          <div className="new-row">
+            <div className="new-column">
               <h3>Goal Information</h3>
               <form onSubmit={handleSubmit}>
                 <div>
-                  <label htmlFor="title" className="required">Title</label>
+                  <label htmlFor="title" className="new-required">Title</label>
                   <input
                     type="text"
                     id="title"
@@ -121,7 +121,7 @@ const NewGoalPage = () => {
                   />
                 </div>
                 <div>
-                  <label htmlFor="from" className="required">From</label>
+                  <label htmlFor="from" className="new-required">From</label>
                   <input
                     type="datetime-local"
                     id="from"
@@ -132,7 +132,7 @@ const NewGoalPage = () => {
                   />
                 </div>
                 <div>
-                  <label htmlFor="to" className="required">To</label>
+                  <label htmlFor="to" className="new-required">To</label>
                   <input
                     type="datetime-local"
                     id="to"
@@ -166,26 +166,26 @@ const NewGoalPage = () => {
             </div>
           </div>
         </div>
-        <div className="kpis">
+        <div className="new-kpis">
           <h3>KPIs</h3>
-          <div className="kpiList">
+          <div className="new-kpiList">
             {kpis.map(kpi => (
-              <div className="kpiItem" key={kpi.id}>
-                <div className="widget">
-                  <div className="icon">🔑</div>
-                  <div className="name">{kpi.name}</div>
+              <div className="new-kpiItem" key={kpi.id}>
+                <div className="new-widget">
+                  <div className="new-icon">🔑</div>
+                  <div className="new-name">{kpi.name}</div>
                 </div>
               </div>
             ))}
           </div>
         </div>
       </div>
-      <div className="newKPI">
-        <div className='kpi-container'>
+      <div className="new-newKPI">
+        <div className='new-kpi-container'>
           <h3>New KPI</h3>
           <form>
             <div>
-              <label htmlFor="kpiName" className="required">KPI Name</label>
+              <label htmlFor="kpiName" className="new-required">KPI Name</label>
               <input
                 type="text"
                 id="kpiName"
@@ -196,7 +196,7 @@ const NewGoalPage = () => {
               />
             </div>
             <div>
-              <label htmlFor="typeKPI" className="required">KPI Type</label>
+              <label htmlFor="typeKPI" className="new-required">KPI Type</label>
               <select
                 id="typeKPI"
                 name="typeKPI"
@@ -212,7 +212,7 @@ const NewGoalPage = () => {
             </div>
             {newKpi.typeKPI === KPI_TYPE.TODO_KPI && (
               <div>
-                <label htmlFor="numberOfOptionalsToDo" className="required">Number of Optionals To Do</label>
+                <label htmlFor="numberOfOptionalsToDo" className="new-required">Number of Optionals To Do</label>
                 <input
                   type="number"
                   id="numberOfOptionalsToDo"
@@ -226,7 +226,7 @@ const NewGoalPage = () => {
             {newKpi.typeKPI === KPI_TYPE.QUANTITY_KPI && (
               <>
                 <div>
-                  <label htmlFor="target" className="required">Target</label>
+                  <label htmlFor="target" className="new-required">Target</label>
                   <input
                     type="number"
                     id="target"
@@ -237,7 +237,7 @@ const NewGoalPage = () => {
                   />
                 </div>
                 <div>
-                  <label htmlFor="unit" className="required">Unit</label>
+                  <label htmlFor="unit" className="new-required">Unit</label>
                   <input
                     type="text"
                     id="unit"
@@ -248,7 +248,7 @@ const NewGoalPage = () => {
                   />
                 </div>
                 <div>
-                  <label htmlFor="duration" className="required">Duration</label>
+                  <label htmlFor="duration" className="new-required">Duration</label>
                   <input
                     type="text"
                     id="duration"
@@ -259,7 +259,7 @@ const NewGoalPage = () => {
                   />
                 </div>
                 <div>
-                  <label htmlFor="split" className="required">Split</label>
+                  <label htmlFor="split" className="new-required">Split</label>
                   <input
                     type="text"
                     id="split"
@@ -274,7 +274,7 @@ const NewGoalPage = () => {
             {newKpi.typeKPI && (
               <>
                 <div>
-                  <label htmlFor="from" className="required">From</label>
+                  <label htmlFor="from" className="new-required">From</label>
                   <input
                     type="datetime-local"
                     id="from"
@@ -285,7 +285,7 @@ const NewGoalPage = () => {
                   />
                 </div>
                 <div>
-                  <label htmlFor="to" className="required">To</label>
+                  <label htmlFor="to" className="new-required">To</label>
                   <input
                     type="datetime-local"
                     id="to"
@@ -299,9 +299,9 @@ const NewGoalPage = () => {
             )}
             <h4>Tasks</h4>
             {newKpi.task.map((task, index) => (
-              <div key={task.id} className="task">
+              <div key={task.id} className="new-task">
                 <div>
-                  <label htmlFor={`taskName${task.id}`} className="required">Task Name</label>
+                  <label htmlFor={`taskName${task.id}`} className="new-required">Task Name</label>
                   <input
                     type="text"
                     id={`taskName${task.id}`}
@@ -312,7 +312,7 @@ const NewGoalPage = () => {
                   />
                 </div>
                 <div>
-                  <label htmlFor={`taskType${task.id}`} className="required">Task Type</label>
+                  <label htmlFor={`taskType${task.id}`} className="new-required">Task Type</label>
                   <select
                     id={`taskType${task.id}`}
                     name="type"
@@ -326,7 +326,7 @@ const NewGoalPage = () => {
                   </select>
                 </div>
                 <div>
-                  <label htmlFor={`taskFrom${task.id}`} className="required">Task From</label>
+                  <label htmlFor={`taskFrom${task.id}`} className="new-required">Task From</label>
                   <input
                     type="datetime-local"
                     id={`taskFrom${task.id}`}
@@ -337,7 +337,7 @@ const NewGoalPage = () => {
                   />
                 </div>
                 <div>
-                  <label htmlFor={`taskTo${task.id}`} className="required">Task To</label>
+                  <label htmlFor={`taskTo${task.id}`} className="new-required">Task To</label>
                   <input
                     type="datetime-local"
                     id={`taskTo${task.id}`}

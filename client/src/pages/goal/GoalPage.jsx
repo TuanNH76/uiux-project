@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { Doughnut } from 'react-chartjs-2';
 import { Chart, ArcElement, Tooltip, Legend } from 'chart.js';
-import './GoalPage.css';
+import './style.css';
 Chart.register(ArcElement, Tooltip, Legend);
 
 const GoalPage = () => {

@@ -1,23 +1,24 @@
-.container {
+.new-container {
   display: flex;
   flex-direction: column;
   padding: 20px;
 }
 
-.newGoal-container {
+.new-newGoal-container {
   display: flex;
   gap: 200px; /* Space between the KPI and task forms */
 }
 
-.goal-container{
+.new-goal-container {
   width: 48%; /* Adjust width as needed */
   padding: 20px;
   border: 1px solid #ccc;
   border-radius: 8px;
   background-color: #f9f9f9;
 }
-.kpi-container,
-.task-container {
+
+.new-kpi-container,
+.new-task-container {
   margin-top: 20px;
   width: 48%;
   padding: 20px;
@@ -26,38 +27,42 @@
   background-color: #f9f9f9;
 }
 
-.kpi-container {
+.new-kpi-container {
   margin-right: 20px;
 }
 
-h2, h3, h4 {
+.new-container h2,
+.new-container h3,
+.new-container h4 {
   text-align: left; /* Align headers to the left */
   margin-bottom: 20px;
 }
 
-form {
+.new-container form {
   display: flex;
   flex-direction: column;
   align-items: flex-start; /* Align form elements to the left */
 }
 
-form > div {
+.new-container form > div {
   margin-bottom: 15px;
   width: 100%; /* Ensure child elements have full width */
 }
 
-label {
+.new-container label {
   margin-bottom: 5px;
   display: block;
 }
 
-label.required::after {
+.new-container label.required::after {
   content: '*';
   color: red;
   margin-left: 5px;
 }
 
-input, textarea, select {
+.new-container input,
+.new-container textarea,
+.new-container select {
   width: 100%;
   padding: 10px;
   border: 1px solid #ccc;
@@ -65,12 +70,12 @@ input, textarea, select {
   box-sizing: border-box;
 }
 
-textarea {
+.new-container textarea {
   resize: vertical;
   height: 100px;
 }
 
-button {
+.new-container button {
   padding: 10px 15px;
   border: none;
   border-radius: 4px;
@@ -81,19 +86,19 @@ button {
   margin-top: 10px;
 }
 
-button:hover {
+.new-container button:hover {
   background-color: #3839D1; /* Hover color */
 }
 
-.kpiList {
+.new-container .new-kpiList {
   margin-top: 20px;
 }
 
-.kpiItem {
+.new-container .new-kpiItem {
   margin-bottom: 10px;
 }
 
-.widget {
+.new-container .new-widget {
   display: flex;
   align-items: center;
   padding: 10px;
@@ -104,15 +109,15 @@ button:hover {
   transition: all 0.3s ease; /* Hover effect */
 }
 
-.widget:hover {
+.new-container .new-widget:hover {
   background-color: #eaeaea; /* Background color on hover */
 }
 
-.icon {
+.new-container .new-icon {
   font-size: 24px;
   margin-right: 10px;
 }
 
-.name {
+.new-container .new-name {
   font-size: 16px;
 }

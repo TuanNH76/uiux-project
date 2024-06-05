@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
-import './WeightedKPIDetailPage.css';
-
+import './style.css';
 const WeightedKPIDetailPage = () => {
     const { goalId, kpiId } = useParams();
     const storedGoalData = JSON.parse(localStorage.getItem('goalData'));
