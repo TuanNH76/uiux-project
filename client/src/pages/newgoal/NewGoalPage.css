@@ -1,0 +1,118 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+}
+
+.newGoal-container {
+  display: flex;
+  gap: 200px; /* Space between the KPI and task forms */
+}
+
+.goal-container{
+  width: 48%; /* Adjust width as needed */
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+}
+.kpi-container,
+.task-container {
+  margin-top: 20px;
+  width: 48%;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+}
+
+.kpi-container {
+  margin-right: 20px;
+}
+
+h2, h3, h4 {
+  text-align: left; /* Align headers to the left */
+  margin-bottom: 20px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; /* Align form elements to the left */
+}
+
+form > div {
+  margin-bottom: 15px;
+  width: 100%; /* Ensure child elements have full width */
+}
+
+label {
+  margin-bottom: 5px;
+  display: block;
+}
+
+label.required::after {
+  content: '*';
+  color: red;
+  margin-left: 5px;
+}
+
+input, textarea, select {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+textarea {
+  resize: vertical;
+  height: 100px;
+}
+
+button {
+  padding: 10px 15px;
+  border: none;
+  border-radius: 4px;
+  background-color: #5051F9; /* Button color */
+  color: white;
+  cursor: pointer;
+  font-size: 16px;
+  margin-top: 10px;
+}
+
+button:hover {
+  background-color: #3839D1; /* Hover color */
+}
+
+.kpiList {
+  margin-top: 20px;
+}
+
+.kpiItem {
+  margin-bottom: 10px;
+}
+
+.widget {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background-color: #f9f9f9;
+  width: 20rem; /* Use 'rem' instead of '%' */
+  transition: all 0.3s ease; /* Hover effect */
+}
+
+.widget:hover {
+  background-color: #eaeaea; /* Background color on hover */
+}
+
+.icon {
+  font-size: 24px;
+  margin-right: 10px;
+}
+
+.name {
+  font-size: 16px;
+}

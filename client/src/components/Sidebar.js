@@ -12,29 +12,22 @@ const Sidebar = ({ isCollapsed }) => {
           <FaHome />
           <ListItemText primary="Dashboard" />
         </ListItem>
-        <ListItem button className="sidebar-item" component={Link} to="/tracking">
-          <FaChartLine />
-          <ListItemText primary="Tracking" />
-        </ListItem>
-        <ListItem button className="sidebar-item" component={Link} to="/kpis">
-          <FaTasks />
-          <ListItemText primary="KPI" />
-        </ListItem>
-        <ListItem button className="sidebar-item" component={Link} to="/tasks">
-          <FaTasks />
-          <ListItemText primary="Task" />
-        </ListItem>
-        <ListItem button className="sidebar-item" component={Link} to="/schedule">
-          <FaCalendarAlt />
-          <ListItemText primary="Schedule" />
-        </ListItem>
+
         <ListItem button className="sidebar-item" component={Link} to="/goals">
           <FaEnvelope />
           <ListItemText primary="Goal" />
         </ListItem>
-        <ListItem button className="sidebar-item" component={Link} to="/evaluations">
+        <ListItem button className="sidebar-item" component={Link} to="/newgoal">
           <FaCog />
-          <ListItemText primary="Evaluation" />
+          <ListItemText primary="New Goal" />
+        </ListItem>
+        <ListItem button className="sidebar-item" component={Link} to="/schedule">
+          <FaCalendarAlt />
+          <ListItemText primary="Assistant" />
+        </ListItem>
+        <ListItem button className="sidebar-item" component={Link} to="/schedule">
+          <FaCalendarAlt />
+          <ListItemText primary="Schedule" />
         </ListItem>
         <ListItem button className="sidebar-item" component={Link} to="/setting">
           <FaCog />
