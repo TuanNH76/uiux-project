@@ -6,6 +6,7 @@ const kpiRoutes = require('./routes/kpi');
 const goalRoutes = require('./routes/goal');
 const taskRoutes = require('./routes/task');
 const evaluationRoutes = require('./routes/evaluation');
+const chatRoutes = require('./routes/chat');
 
 const app = express();
 app.use(bodyParser.json());
@@ -17,6 +18,7 @@ app.use('/api/kpis', kpiRoutes);
 app.use('/api/goals', goalRoutes);
 app.use('/api/tasks', taskRoutes);
 app.use('/api/evaluations', evaluationRoutes);
+app.use('/api/chat',chatRoutes)
 
 const PORT = process.env.PORT || 8080;
 app.listen(PORT, () => {
