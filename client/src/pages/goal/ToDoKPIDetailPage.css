@@ -96,7 +96,7 @@
 
 .kpi-chart {
   height: 20px;
-  background-color: #4CAF50; /* Green color for the chart */
+  background-color: #5051F9; /* Green color for the chart */
   border-radius: 5px;
   transition: width 0.3s ease;
 }
@@ -105,4 +105,20 @@
   margin-top: 5px;
   font-size: 14px;
   color: #555;
+}
+
+.task-info a {
+    color: #1a73e8; /* Màu xanh cho link */
+    text-decoration: none; /* Loại bỏ gạch chân */
+    font-weight: bold; /* In đậm chữ */
+    margin-top: 5px; /* Khoảng cách phía trên */
+    display: block; /* Hiển thị dưới dạng khối để dễ quản lý khoảng cách */
+}
+
+.task-info a:hover {
+    text-decoration: underline; /* Gạch chân khi hover */
+}
+
+.task-info a:visited {
+    color: #3b3b3b; /* Màu sắc cho link đã truy cập */
 }

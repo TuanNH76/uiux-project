@@ -138,6 +138,7 @@ const ToDoKPIDetailPage = () => {
             totalScore = requiredScore + optionalScore;
         }
 
+        if (totalScore < 0) totalScore = 0;
         setScore(totalScore);
         return totalScore;
     };
@@ -199,7 +200,8 @@ const ToDoKPIDetailPage = () => {
                                     />
                                     <div className="task-info">
                                         <p>{task.name}</p>
-                                        <p>{formatDate(task.to)}</p>
+                                        <p>End date: {formatDate(task.to)}</p>
+                                        <a href={task.link} target="_blank" rel="noopener noreferrer">Link</a>
                                     </div>
                                 </div>
                             </div>
@@ -226,7 +228,8 @@ const ToDoKPIDetailPage = () => {
                                     />
                                     <div className="task-info">
                                         <p>{task.name}</p>
-                                        <p>{formatDate(task.to)}</p>
+                                        <p>End date: {formatDate(task.to)}</p>
+                                        <a href={task.link} target="_blank" rel="noopener noreferrer">Link</a>
                                     </div>
                                 </div>
                             </div>
