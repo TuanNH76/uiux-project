@@ -1,0 +1,104 @@
+  .kpi-detail {
+      padding: 20px;
+  }
+
+  .nav-container {
+      margin-bottom: 20px;
+  }
+
+  .nav {
+      display: flex;
+      align-items: center;
+  }
+
+  .nav span {
+      margin: 0 5px;
+      color: #777;
+  }
+
+  .task-list {
+      display: flex;
+      gap: 20px;
+  }
+
+  .required-tasks,
+  .optional-tasks {
+      flex: 1;
+  }
+
+  .task-widget {
+      display: flex;
+      flex-direction: column; /* Đổi từ hàng sang cột */
+      align-items: flex-start; /* Căn trái */
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      width: 20rem;
+      margin-bottom: 20px;
+      transition: all 0.3s ease;
+      background-color: #8380FE;
+  }
+
+  .task-widget.completed {
+      background-color: #fff;
+  }
+
+  .task-widget.overdue:not(.completed) {
+      background-color: #FF6B57;
+  }
+
+  .task-widget:hover {
+      box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+  }
+
+  .task-widget p {
+      margin: 0;
+  }
+
+  .checkbox-container {
+      display: flex;
+      align-items: center;
+      cursor: pointer;
+      width: 100%; /* Sửa đổi */
+  }
+
+  .custom-checkbox {
+      width: 20px;
+      height: 20px;
+      margin-right: 10px;
+  }
+
+  .task-info {
+      flex-grow: 1;
+  }
+
+  .task-weight {
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      background-color: #FFA500;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-top: 10px; /* Thêm margin-top */
+  }
+.score-container {
+    display: flex;
+    flex-direction: row; 
+    gap: 90px;
+    justify-content: center; 
+    align-items: center; 
+  }
+  .score {
+    width: 30px; 
+    height: 30px; 
+    border-radius: 50%;
+    background-color: #ffffff; 
+    color: #5051F9;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold; 
+    font-size: 20px;
+}
