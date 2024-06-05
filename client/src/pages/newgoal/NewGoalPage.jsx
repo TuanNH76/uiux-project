@@ -2,9 +2,9 @@ import React, { useState } from 'react';
 import './NewGoalPage.css';
 
 const KPI_TYPE = {
-  TODO_KPI: 'TODO_KPI',
-  QUANTITY_KPI: 'QUANTITY_KPI',
-  WEIGHTED_KPI: 'WEIGHTED_KPI'
+  TODO_KPI: "To-do",
+  QUANTITY_KPI: "Quantity",
+  WEIGHTED_KPI: "Weighted"
 };
 
 const generateId = () => Math.floor(Math.random() * 800) + 200;
@@ -18,7 +18,7 @@ const NewGoalPage = () => {
     description: '',
   });
 
-  const [kpiList, setKpiList] = useState([]);
+  const [kpis, setKpis] = useState([]);
   const [newKpi, setNewKpi] = useState({
     name: '',
     typeKPI: '',
@@ -30,7 +30,7 @@ const NewGoalPage = () => {
     unit: '',
     duration: '',
     split: '',
-    tasks: []
+    task: []
   });
 
   const handleChange = (e) => {
@@ -52,8 +52,8 @@ const NewGoalPage = () => {
   const handleAddTask = () => {
     setNewKpi({
       ...newKpi,
-      tasks: [
-        ...newKpi.tasks,
+      task: [
+        ...newKpi.task,
         { id: `T${generateId()}`, name: '', completed: false, type: '', from: '', to: '', link: '' }
       ]
     });
@@ -61,18 +61,18 @@ const NewGoalPage = () => {
 
   const handleTaskChange = (index, e) => {
     const { name, value } = e.target;
-    const tasks = [...newKpi.tasks];
+    const tasks = [...newKpi.task];
     tasks[index][name] = value;
     setNewKpi({
       ...newKpi,
-      tasks
+      task: tasks
     });
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
     if (formData.title && formData.from && formData.to) {
-      const newGoal = { ...formData, kpiList };
+      const newGoal = { id: `G${generateId()}`, ...formData, kpis };
       const goalData = JSON.parse(localStorage.getItem('goalData')) || [];
       goalData.push(newGoal);
       localStorage.setItem('goalData', JSON.stringify(goalData));
@@ -84,7 +84,7 @@ const NewGoalPage = () => {
   };
 
   const handleAddKpi = () => {
-    setKpiList([...kpiList, { ...newKpi, id: `K${generateId()}`, score: 0 }]);
+    setKpis([...kpis, { ...newKpi, id: `K${generateId()}`, score: 0 }]);
     setNewKpi({
       name: '',
       typeKPI: '',
@@ -96,7 +96,7 @@ const NewGoalPage = () => {
       unit: '',
       duration: '',
       split: '',
-      tasks: []
+      task: []
     });
   };
 
@@ -107,7 +107,7 @@ const NewGoalPage = () => {
           <h2>New Goal</h2>
           <div className="row">
             <div className="column">
-              <h3>Goal information</h3>
+              <h3>Goal Information</h3>
               <form onSubmit={handleSubmit}>
                 <div>
                   <label htmlFor="title" className="required">Title</label>
@@ -169,7 +169,7 @@ const NewGoalPage = () => {
         <div className="kpis">
           <h3>KPIs</h3>
           <div className="kpiList">
-            {kpiList.map(kpi => (
+            {kpis.map(kpi => (
               <div className="kpiItem" key={kpi.id}>
                 <div className="widget">
                   <div className="icon">🔑</div>
@@ -298,13 +298,13 @@ const NewGoalPage = () => {
               </>
             )}
             <h4>Tasks</h4>
-            {newKpi.tasks.map((task, index) => (
-              <div key={index}>
+            {newKpi.task.map((task, index) => (
+              <div key={task.id} className="task">
                 <div>
-                  <label htmlFor={`taskName${index}`} className="required">Task Name</label>
+                  <label htmlFor={`taskName${task.id}`} className="required">Task Name</label>
                   <input
                     type="text"
-                    id={`taskName${index}`}
+                    id={`taskName${task.id}`}
                     name="name"
                     value={task.name}
                     onChange={(e) => handleTaskChange(index, e)}
@@ -312,10 +312,24 @@ const NewGoalPage = () => {
                   />
                 </div>
                 <div>
-                  <label htmlFor={`taskFrom${index}`} className="required">From</label>
+                  <label htmlFor={`taskType${task.id}`} className="required">Task Type</label>
+                  <select
+                    id={`taskType${task.id}`}
+                    name="type"
+                    value={task.type}
+                    onChange={(e) => handleTaskChange(index, e)}
+                    required
+                  >
+                    <option value="">Select Task Type</option>
+                    <option value="Required">Required</option>
+                    <option value="Optional">Optional</option>
+                  </select>
+                </div>
+                <div>
+                  <label htmlFor={`taskFrom${task.id}`} className="required">Task From</label>
                   <input
                     type="datetime-local"
-                    id={`taskFrom${index}`}
+                    id={`taskFrom${task.id}`}
                     name="from"
                     value={task.from}
                     onChange={(e) => handleTaskChange(index, e)}
@@ -323,10 +337,10 @@ const NewGoalPage = () => {
                   />
                 </div>
                 <div>
-                  <label htmlFor={`taskTo${index}`} className="required">To</label>
+                  <label htmlFor={`taskTo${task.id}`} className="required">Task To</label>
                   <input
                     type="datetime-local"
-                    id={`taskTo${index}`}
+                    id={`taskTo${task.id}`}
                     name="to"
                     value={task.to}
                     onChange={(e) => handleTaskChange(index, e)}
@@ -334,10 +348,10 @@ const NewGoalPage = () => {
                   />
                 </div>
                 <div>
-                  <label htmlFor={`taskLink${index}`}>Link</label>
+                  <label htmlFor={`taskLink${task.id}`}>Task Link</label>
                   <input
-                    type="text"
-                    id={`taskLink${index}`}
+                    type="url"
+                    id={`taskLink${task.id}`}
                     name="link"
                     value={task.link}
                     onChange={(e) => handleTaskChange(index, e)}
@@ -346,8 +360,8 @@ const NewGoalPage = () => {
               </div>
             ))}
             <button type="button" onClick={handleAddTask}>Add Task</button>
-            <button type="button" onClick={handleAddKpi}>Add KPI</button>
           </form>
+          <button type="button" onClick={handleAddKpi}>Add KPI</button>
         </div>
       </div>
     </div>

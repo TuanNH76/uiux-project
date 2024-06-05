@@ -16,7 +16,7 @@ const GoalPage = () => {
         setGoals(storedGoalData || []);
     }, []);
 
-    const calculateKPICompletion = (kpis) => {
+    const calculateKPICompletion = (kpis = []) => {
         const totalKpis = kpis.length;
         const completedKpis = kpis.filter(kpi => kpi.completed).length;
         return { totalKpis, completedKpis };
