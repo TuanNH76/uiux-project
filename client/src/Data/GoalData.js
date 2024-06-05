@@ -1,3 +1,9 @@
+// KPI: To-do KPI, Quantity KPI, Weighted KPI
+export const KPI_TYPE = {
+    TODO_KPI: "To-do",
+    QUANTITY_KPI: "Quantity",
+    WEIGHTED_KPI: "Weighted"
+}
 export const goalData = [
     {
         id: "G1",
@@ -15,6 +21,7 @@ export const goalData = [
                 from: '2023-06-01T10:00',
                 to: '2023-12-31T18:00',
                 numberOfOptionalsToDo: 1,
+                typeKPI: KPI_TYPE.TODO_KPI,
                 task: [
                     { id: "T1", name: 'Task 1', completed: true, weight: 20, type: "Required", from: '2023-06-01T10:00', to: '2023-12-31T18:00', link: "https://shorturl.at/uJl78" },
                     { id: "T2", name: 'Task 2', completed: false, weight: 20, type: "Required", from: '2023-06-01T10:00', to: '2023-12-01T18:00', link: "https://shorturl.at/uJl78" },
@@ -30,7 +37,10 @@ export const goalData = [
                 name: 'KPI 2',
                 completed: true,
                 score: 110,
+                from: '2023-06-01T10:00',
+                to: '2023-12-31T18:00',
                 numberOfOptionalsToDo: 1,
+                typeKPI: KPI_TYPE.QUANTITY_KPI,
                 task: [
                     { id: "T1", name: 'Task 1', completed: true, weight: 20, type: "Required", from: '2023-06-01T10:00', to: '2023-12-31T18:00', link: "https://shorturl.at/uJl78" },
                     { id: "T2", name: 'Task 2', completed: true, weight: 20, type: "Required", from: '2023-06-01T10:00', to: '2023-12-31T18:00', link: "https://shorturl.at/uJl78" },

@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { goalData } from '../../Data/GoalData';
-import './KPIDetailPage.css';
+import './ToDoKPIDetailPage.css';
 
-const KPIDetailPage = () => {
+const ToDoKPIDetailPage = () => {
     const { goalId, kpiId } = useParams();
     const storedGoalData = JSON.parse(localStorage.getItem('goalData')); // Lấy dữ liệu từ localStorage
-    const goal = storedGoalData.find(item => item.id === goalId);
+    const goalIndex = storedGoalData.findIndex(item => item.id === goalId);
+    const goal = storedGoalData[goalIndex];
 
     const [tasks, setTasks] = useState([]);
     const [selectedOptionalTasks, setSelectedOptionalTasks] = useState(0);
@@ -20,10 +21,31 @@ const KPIDetailPage = () => {
                 const updatedTasks = initialTasks.sort(sortTasks);
                 setTasks(updatedTasks);
                 setSelectedOptionalTasks(kpi.numberOfOptionalsToDo); // Initialize state with numberOfOptionalsToDo
-                calculateScore(updatedTasks, kpi.numberOfOptionalsToDo); // Calculate initial score
+                setScore(kpi.score); // Set initial score from localStorage
             }
         }
     }, []);
+
+    useEffect(() => {
+        // Update tasks from localStorage when it changes
+        const updatedGoalData = JSON.parse(localStorage.getItem('goalData'));
+        const goalIndex = updatedGoalData.findIndex(item => item.id === goalId);
+        const goal = updatedGoalData[goalIndex];
+        const kpi = goal.kpis.find(kpi => kpi.id === kpiId);
+        if (kpi) {
+            const initialTasks = kpi.task;
+            const updatedTasks = initialTasks.sort(sortTasks);
+            setTasks(updatedTasks);
+            setSelectedOptionalTasks(kpi.numberOfOptionalsToDo); // Update selectedOptionalTasks
+            setScore(kpi.score); // Update score
+        }
+    }, [localStorage.getItem('goalData')]);
+
+    const updateLocalStorage = (data) => {
+        const updatedGoalData = [...storedGoalData];
+        updatedGoalData[goalIndex] = data;
+        localStorage.setItem('goalData', JSON.stringify(updatedGoalData));
+    };
 
     const sortTasks = (a, b) => {
         const now = new Date();
@@ -48,7 +70,20 @@ const KPIDetailPage = () => {
         updatedTasks.sort(sortTasks);
 
         setTasks(updatedTasks);
-        calculateScore(updatedTasks, selectedOptionalTasks); // Recalculate score on task completion
+        const updatedGoal = {
+            ...goal,
+            kpis: goal.kpis.map(kpi => {
+                if (kpi.id === kpiId) {
+                    return {
+                        ...kpi,
+                        task: updatedTasks, // Update tasks in the kpi
+                        score: calculateScore(updatedTasks, selectedOptionalTasks)
+                    };
+                }
+                return kpi;
+            })
+        };
+        updateLocalStorage(updatedGoal);
     };
 
     const countCompletedTasks = (type) => {
@@ -61,25 +96,21 @@ const KPIDetailPage = () => {
         const newSelectedValue = parseInt(event.target.value);
         setSelectedOptionalTasks(newSelectedValue);
 
-        const updatedGoal = goalData.map(g => {
-            if (g.id === goalId) {
-                return {
-                    ...g,
-                    kpis: g.kpis.map(kpi => {
-                        if (kpi.id === kpiId) {
-                            return {
-                                ...kpi,
-                                numberOfOptionalsToDo: newSelectedValue
-                            };
-                        }
-                        return kpi;
-                    })
-                };
-            }
-            return g;
-        });
+        const updatedGoal = {
+            ...goal,
+            kpis: goal.kpis.map(kpi => {
+                if (kpi.id === kpiId) {
+                    return {
+                        ...kpi,
+                        numberOfOptionalsToDo: newSelectedValue,
+                        score: calculateScore(tasks, newSelectedValue)
+                    };
+                }
+                return kpi;
+            })
+        };
 
-        calculateScore(tasks, newSelectedValue); // Recalculate score on optional task selection
+        updateLocalStorage(updatedGoal);
     };
 
     const calculateScore = (tasks, numberOfOptionalsToDo) => {
@@ -99,6 +130,7 @@ const KPIDetailPage = () => {
 
             if (completedOptionalTasks >= numberOfOptionalsToDo) {
                 optionalScore = 20;
+                optionalScore += completedOptionalTasks - numberOfOptionalsToDo;
             } else {
                 optionalScore = (completedOptionalTasks / numberOfOptionalsToDo) * 20;
                 optionalScore += (completedOptionalTasks - numberOfOptionalsToDo) * 1;
@@ -108,6 +140,7 @@ const KPIDetailPage = () => {
         }
 
         setScore(totalScore);
+        return totalScore;
     };
 
     const formatDate = (dateString) => {
@@ -205,4 +238,4 @@ const KPIDetailPage = () => {
     );
 };
 
-export default KPIDetailPage;
+export default ToDoKPIDetailPage;
