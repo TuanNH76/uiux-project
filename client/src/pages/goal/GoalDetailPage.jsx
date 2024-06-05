@@ -27,7 +27,11 @@ const GoalDetailPage = () => {
             <div className="kpi-list">
                 {goal.kpis.map((kpi) => {
                     return (
-                        <Link key={kpi.id} to={`/goals/${goal.id}/${kpi.id}`} className="goal-link">
+                        <Link
+                            key={kpi.id}
+                            to={kpi.typeKPI === 'To-do' ? `/goals/${goal.id}/todo/${kpi.id}` : `/goals/${goal.id}/${kpi.id}`}
+                            className="goal-link"
+                        >
                             <div className="kpi-widget">
                                 <h4>{kpi.name}</h4>
                                 <p>Number of Required Tasks: {kpi.task.filter(task => task.type === 'Required').length}</p>

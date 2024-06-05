@@ -37,7 +37,7 @@ function AppRouter() {
             <Route path="/schedule" element={<Schedule />} />
             <Route path="/goals" element={<Goal />} />
             <Route path="/goals/:id" element={<GoalDetailPage />} />
-            <Route path="/goals/:goalId/:kpiId" element={<ToDoKPIDetailPage />} />
+            <Route path="/goals/:goalId/todo/:kpiId" element={<ToDoKPIDetailPage />} />
             <Route path="/setting" element={<Setting />} />
           </Routes>
         </div>
