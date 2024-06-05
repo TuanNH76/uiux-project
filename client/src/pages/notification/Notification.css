@@ -1,0 +1,25 @@
+.notification {
+  position: absolute;
+  top: 50px; /* Adjust according to your navbar height */
+  right: 20px; /* Adjust as needed */
+  width: 300px; /* Adjust width as needed */
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  z-index: 1000; /* Ensure it appears above other content */
+}
+
+.notification h4 {
+  margin-top: 0;
+}
+
+.notification ul {
+  list-style: none;
+  padding: 0;
+}
+
+.notification li {
+  margin-bottom: 10px;
+}

@@ -15,6 +15,7 @@ import ToDoKPIDetailPage from '../pages/goal/ToDoKPIDetailPage';
 import QuantityKPIDetailPage from '../pages/goal/QuantityKPIDetailPage'
 import WeightedKPIDetailPage from '../pages/goal/WeightedKPIDetailPage';
 import NewGoalPage from '../pages/newgoal/NewGoalPage';
+import Notification from '../pages/notification/Notification'
 import '../App';
 
 function AppRouter() {
@@ -45,6 +46,7 @@ function AppRouter() {
             <Route path="/goals/:goalId/weighted/:kpiId" element={<WeightedKPIDetailPage />} />
             <Route path="/newgoal" element={<NewGoalPage />} />
             <Route path="/setting" element={<Setting />} />
+            {/* <Route path="/notification" element={<Notification />} /> */}
           </Routes>
         </div>
       </div>
