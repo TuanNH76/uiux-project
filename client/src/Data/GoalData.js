@@ -41,7 +41,6 @@ export const goalData = [
                     { id: "T7", name: 'Task 7', completed: false, weight: 20, type: "Optional", from: '2023-06-01T10:00', to: '2023-12-31T18:00', link: "https://shorturl.at/uJl78" },
                 ],
             },
-
         ]
     },
     {

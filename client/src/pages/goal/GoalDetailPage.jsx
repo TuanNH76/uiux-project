@@ -1,11 +1,11 @@
 import React from 'react';
-import { useParams, Link } from 'react-router-dom'; // Import Link
-import { goalData } from '../../Data/GoalData';
+import { useParams, Link } from 'react-router-dom';
 import './GoalDetailPage.css';
 
 const GoalDetailPage = () => {
-    const { id } = useParams(); // Sử dụng useParams để lấy id từ URL
-    const goal = goalData.find(item => item.id === id);
+    const { id } = useParams(); // Lấy id từ URL
+    const storedGoalData = JSON.parse(localStorage.getItem('goalData')); // Lấy dữ liệu từ localStorage
+    const goal = storedGoalData.find(item => item.id === id); // Tìm mục tiêu có id tương ứng
 
     if (!goal) {
         return <p>Goal not found!</p>;

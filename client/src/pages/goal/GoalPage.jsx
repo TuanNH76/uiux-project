@@ -2,16 +2,19 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { Doughnut } from 'react-chartjs-2';
 import { Chart, ArcElement, Tooltip, Legend } from 'chart.js';
-import GoalDetailPage from './GoalDetailPage';
 import './GoalPage.css';
-import { goalData } from '../../Data/GoalData.js';
 Chart.register(ArcElement, Tooltip, Legend);
 
 const GoalPage = () => {
 
-    const [goals, setGoals] = useState(goalData);
+    const [goals, setGoals] = useState([]);
 
     const [showCompleted, setShowCompleted] = useState(false);
+
+    useEffect(() => {
+        const storedGoalData = JSON.parse(localStorage.getItem('goalData'));
+        setGoals(storedGoalData || []); 
+    }, []);
 
     const calculateKPICompletion = (kpis) => {
         const totalKpis = kpis.length;

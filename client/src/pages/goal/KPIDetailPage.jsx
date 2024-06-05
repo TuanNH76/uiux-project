@@ -5,7 +5,8 @@ import './KPIDetailPage.css';
 
 const KPIDetailPage = () => {
     const { goalId, kpiId } = useParams();
-    const goal = goalData.find(item => item.id === goalId);
+    const storedGoalData = JSON.parse(localStorage.getItem('goalData')); // Lấy dữ liệu từ localStorage
+    const goal = storedGoalData.find(item => item.id === goalId);
 
     const [tasks, setTasks] = useState([]);
     const [selectedOptionalTasks, setSelectedOptionalTasks] = useState(0);
@@ -22,7 +23,7 @@ const KPIDetailPage = () => {
                 calculateScore(updatedTasks, kpi.numberOfOptionalsToDo); // Calculate initial score
             }
         }
-    }, [goal, kpiId]);
+    }, []);
 
     const sortTasks = (a, b) => {
         const now = new Date();
