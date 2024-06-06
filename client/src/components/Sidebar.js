@@ -21,7 +21,7 @@ const Sidebar = ({ isCollapsed }) => {
           <FaCog />
           <ListItemText primary="New Goal" />
         </ListItem>
-        <ListItem button className="sidebar-item" component={Link} to="/schedule">
+        <ListItem button className="sidebar-item" component={Link} to="/assistant">
           <FaCalendarAlt />
           <ListItemText primary="Assistant" />
         </ListItem>

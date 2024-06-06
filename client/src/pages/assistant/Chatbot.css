@@ -1,0 +1,118 @@
+.chatbot-container {
+    padding: 20px;
+
+    max-width: 1100px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    height: 80vh;
+    justify-content: space-between;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: #ffffff;
+    border-radius: 10px;
+}
+
+.chatbot-title {
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.chatbot-messages {
+    flex-grow: 1;
+    overflow-y: auto;
+    margin-bottom: 10px;
+    padding-right: 10px; /* Add padding to prevent text from touching the scrollbar */
+}
+
+.user-message-container {
+    display: flex;
+    justify-content: flex-end; /* Align user messages to the right */
+    margin: 5px 0;
+}
+
+.bot-message-container {
+    display: flex;
+    justify-content: flex-start; /* Align bot messages to the left */
+    margin: 5px 0;
+}
+
+.user-message {
+    background-color: #CACAFF;
+    padding: 10px;
+    border-radius: 10px;
+    max-width: 80%;
+    word-wrap: break-word;
+}
+
+.bot-message {
+    background-color: #E4E6EB;
+    padding: 10px;
+    border-radius: 10px;
+    max-width: 80%;
+    word-wrap: break-word;
+}
+
+.chatbot-input-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.MuiButton-containedPrimary {
+    background-color: #4F4FFF !important;
+}
+
+.MuiButton-containedPrimary:hover {
+    background-color: #3e3ecf !important;
+}
+
+.MuiInput-underline:before {
+    border-bottom-color: #4F4FFF !important;
+}
+
+.MuiInput-underline:hover:not(.Mui-disabled):before {
+    border-bottom-color: #3e3ecf !important;
+}
+
+.MuiInput-underline:after {
+    border-bottom-color: #4F4FFF !important;
+}
+
+/* Add this to Chatbot.css */
+@keyframes wave {
+    0%, 60%, 100% {
+        transform: initial;
+    }
+    30% {
+        transform: translateY(-10px);
+    }
+}
+
+.typing-indicator {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    margin: 5px 0;
+}
+
+.typing-indicator span {
+    display: inline-block;
+    background-color: #E4E6EB;
+    width: 8px;
+    height: 8px;
+    margin: 0 2px;
+    border-radius: 50%;
+    animation: wave 1.3s infinite ease-in-out;
+}
+
+.typing-indicator span:nth-child(1) {
+    animation-delay: -0.45s;
+}
+
+.typing-indicator span:nth-child(2) {
+    animation-delay: -0.3s;
+}
+
+.typing-indicator span:nth-child(3) {
+    animation-delay: -0.15s;
+}
