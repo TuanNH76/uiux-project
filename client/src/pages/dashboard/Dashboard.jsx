@@ -100,7 +100,7 @@ const Dashboard = () => {
         Dashboard
       </Typography>
       <Grid container spacing={3}>
-        <Grid item xs={12} md={4}> {/* Adjusted the width of the month selector */}
+        <Grid item xs={12} md={4}>
           <Paper className="dashboard-paper">
             <div className="month-navigation">
               <IconButton onClick={handlePrevMonth}>
@@ -131,7 +131,7 @@ const Dashboard = () => {
             </div>
           </Paper>
         </Grid>
-        <Grid item xs={12} md={8}> {/* Adjusted the width of the task list */}
+        <Grid item xs={12} md={8}>
           <Paper className="dashboard-paper">
             <Typography variant="h6">Tasks for {selectedDate.toDateString()}</Typography>
             <List>
