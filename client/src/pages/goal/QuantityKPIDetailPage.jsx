@@ -21,9 +21,13 @@ const QuantityKPIDetailPage = () => {
                 if (kpi) {
                     // Set completed based on score
                     const completed = kpi.score >= 100;
-                    setKpiData({ ...kpi, completed });
-                    setScore(kpi.score);
-                    updateTimelineHeight(kpi.task);
+                    const initialKpiData = { ...kpi, completed };
+                    setKpiData(initialKpiData);
+
+                    // Calculate and set initial score
+                    const initialScore = calculateScore(initialKpiData.task, kpi.target);
+                    setScore(initialScore);
+                    updateTimelineHeight(initialKpiData.task);
                 }
             }
         }
@@ -48,9 +52,9 @@ const QuantityKPIDetailPage = () => {
         return `${day}/${month}/${year}`;
     };
 
-    const calculateScore = (tasks) => {
+    const calculateScore = (tasks, target) => {
         const completedQuantity = tasks.reduce((acc, task) => task.completed ? acc + task.quantity : acc, 0);
-        const newScore = (completedQuantity / kpiData.target) * 100;
+        const newScore = (completedQuantity / target) * 100;
         return newScore;
     };
 
@@ -64,7 +68,7 @@ const QuantityKPIDetailPage = () => {
             return task;
         });
 
-        const newScore = calculateScore(updatedTasks);
+        const newScore = calculateScore(updatedTasks, kpiData.target);
         const completed = newScore >= 100; // Kiểm tra nếu điểm số mới đạt hoặc vượt quá 100
         setScore(newScore);
 
@@ -212,6 +216,5 @@ const QuantityKPIDetailPage = () => {
         </div>
     );
 };
-
 
 export default QuantityKPIDetailPage;

@@ -10,6 +10,7 @@ const WeightedKPIDetailPage = () => {
     const [tasks, setTasks] = useState([]);
     const [score, setScore] = useState(0); // State for KPI score
 
+
     useEffect(() => {
         if (goal) {
             const kpi = goal.kpis.find(kpi => kpi.id === kpiId);
@@ -17,7 +18,10 @@ const WeightedKPIDetailPage = () => {
                 const initialTasks = kpi.task;
                 const sortedTasks = initialTasks.sort((a, b) => b.weight - a.weight); // Sort tasks based on weight
                 setTasks(sortedTasks);
-                setScore(kpi.score); // Set initial score from localStorage
+
+                // Calculate score immediately after sorting tasks
+                const calculatedScore = calculateScore(sortedTasks);
+                setScore(calculatedScore); // Set initial score from calculation
             }
         }
     }, []);
