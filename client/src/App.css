@@ -86,7 +86,7 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0 20px;
+  padding: 0 10px; /* Adjusted padding */
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   position: fixed;
   top: 0;
@@ -108,11 +108,23 @@ body {
 .navbar-right {
   display: flex;
   align-items: center;
+  margin-left: auto; /* Pushes icons to the right */
 }
 
 .navbar-icon {
   font-size: 1.5em;
   color: #333;
-  margin-left: 20px;
+  margin-left: 10px; /* Adjusted margin */
   cursor: pointer;
+}
+
+.notification {
+  position: absolute;
+  top: 60px; /* Adjust to position below navbar */
+  right: 10px; /* Adjust to align with the right padding */
+  background: white;
+  border: 1px solid #ddd;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  z-index: 1000;
 }
