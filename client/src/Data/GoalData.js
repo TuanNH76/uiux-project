@@ -60,10 +60,10 @@ export const goalData = [
                 to: '2023-12-31T18:00',
                 typeKPI: KPI_TYPE.WEIGHTED_KPI,
                 task: [
-                    { id: "T4", name: 'Task 4', weight: 10, completed: false, type: "Required", from: '2024-06-22T00:00', to: '2024-06-30T00:00', link: "https://shorturl.at/uJl78" },
-                    { id: "T1", name: 'Task 1', weight: 50, completed: false, type: "Required", from: '2024-06-01T00:00', to: '2024-06-04T00:00', link: "https://shorturl.at/uJl78" },
-                    { id: "T2", name: 'Task 2', weight: 30, completed: true, type: "Required", from: '2024-06-07T00:00', to: '2024-06-14T00:00', link: "https://shorturl.at/uJl78" },
-                    { id: "T3", name: 'Task 3', weight: 10, completed: false, type: "Required", from: '2024-06-15T00:00', to: '2024-06-21T00:00', link: "https://shorturl.at/uJl78" },
+                    { id: "T04", name: 'Task 4', weight: 10, completed: false, type: "Required", from: '2024-06-22T00:00', to: '2024-06-30T00:00', link: "https://shorturl.at/uJl78" },
+                    { id: "T01", name: 'Task 1', weight: 50, completed: false, type: "Required", from: '2024-06-01T00:00', to: '2024-06-04T00:00', link: "https://shorturl.at/uJl78" },
+                    { id: "T02", name: 'Task 2', weight: 30, completed: true, type: "Required", from: '2024-06-07T00:00', to: '2024-06-14T00:00', link: "https://shorturl.at/uJl78" },
+                    { id: "T03", name: 'Task 3', weight: 10, completed: false, type: "Required", from: '2024-06-15T00:00', to: '2024-06-21T00:00', link: "https://shorturl.at/uJl78" },
                 ],
             },
         ]

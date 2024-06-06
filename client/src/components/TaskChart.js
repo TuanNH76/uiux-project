@@ -10,9 +10,21 @@ const TaskChart = () => {
     datasets: [
       {
         label: 'Tasks Done',
-        data: [100, 200, 150, 300, 250, 200, 300],
-        borderColor: 'rgba(75,192,192,1)',
-        backgroundColor: 'rgba(75,192,192,0.2)',
+        data: [10, 10, 7, 3, 20, 11, 0],
+        borderColor: 'rgba(153,102,255,1)',
+        backgroundColor: 'rgba(153,102,255,0.2)',
+      },
+      {
+        label: 'KPI Done',
+        data: [3, 4, 3, 0, 3, 2, 0],
+        borderColor: '#248AC1',
+        backgroundColor: '#44BEFF',
+      },
+      {
+        label: 'Goals Done',
+        data: [2, 1, 2, 1, 3, 5, 0],
+        borderColor: '#0000AC',
+        backgroundColor: '#0000FF',
       },
     ],
   };
@@ -25,7 +37,7 @@ const TaskChart = () => {
       },
       title: {
         display: true,
-        text: 'Tasks Done Over Time',
+        text: 'Tasks, KPI, and Goals Done Over Time',
       },
     },
   };
