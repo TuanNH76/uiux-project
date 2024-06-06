@@ -15,9 +15,9 @@ const GoalDetailPage = () => {
         <div className="goal-detail">
             <div className="nav-container">
                 <div className="nav">
-                    <Link to="/goals">Goals</Link>
+                    <Link to="/app/goals/">Goals</Link>
                     <span>/</span>
-                    <Link to={`/goals/${goal.id}`}>{goal.title}</Link> {/* Sử dụng template string để tạo URL động */}
+                    <Link to={`/app/goals/${goal.id}`}>{goal.title}</Link> {/* Sử dụng template string để tạo URL động */}
                 </div>
             </div>
             <h2>{goal.title}</h2>
@@ -29,16 +29,16 @@ const GoalDetailPage = () => {
                     let kpiLink = '';
                     switch (kpi.typeKPI) {
                         case 'To-do':
-                            kpiLink = `/goals/${goal.id}/todo/${kpi.id}`;
+                            kpiLink = `/app/goals/${goal.id}/todo/${kpi.id}`;
                             break;
                         case 'Quantity':
-                            kpiLink = `/goals/${goal.id}/quantity/${kpi.id}`;
+                            kpiLink = `/app/goals/${goal.id}/quantity/${kpi.id}`;
                             break;
                         case 'Weighted':
-                            kpiLink = `/goals/${goal.id}/weighted/${kpi.id}`;
+                            kpiLink = `/app/goals/${goal.id}/weighted/${kpi.id}`;
                             break;
                         default:
-                            kpiLink = `/goals/${goal.id}/${kpi.id}`;
+                            kpiLink = `/app/goals/${goal.id}/${kpi.id}`;
                             break;
                     }
                     return (

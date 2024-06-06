@@ -179,9 +179,9 @@ const QuantityKPIDetailPage = () => {
         <div className="kpi-detail">
             <div className="nav-container">
                 <div className="nav">
-                    <Link to="/goals">Goals</Link>
+                    <Link to="/app/goals/">Goals</Link>
                     <span>/</span>
-                    <Link to={`/goals/${goalData?.id}`}>{goalData?.title}</Link>
+                    <Link to={`/app/goals/${goalData?.id}`}>{goalData?.title}</Link>
                     <span>/</span>
                     <span>{kpiData?.name}</span>
                 </div>

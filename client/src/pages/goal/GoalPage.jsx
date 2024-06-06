@@ -73,7 +73,7 @@ const GoalPage = () => {
         <div className="goal-page">
             <div className="nav-container">
                 <div className="nav">
-                    <Link to="/goals">Goals</Link>
+                    Goals
                     <span>/</span>
                 </div>
                 <div className="button-container">
@@ -85,7 +85,7 @@ const GoalPage = () => {
             <div className="goal-list">
                 {goalsToDisplay.map((goal) => {
                     return (
-                        <Link key={goal.id} to={`/goals/${goal.id}`} className="goal-link">
+                        <Link key={goal.id} to={`/app/goals/${goal.id}`} className="goal-link">
                             <div className="goal-widget">
                                 <h4>{goal.title}</h4>
                                 <p><strong>End Time:</strong> {formatDate(goal.to)}</p>
