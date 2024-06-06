@@ -1,0 +1,90 @@
+.dashboard {
+  padding: 20px;
+}
+
+.dashboard-title {
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.dashboard-paper {
+  padding: 20px;
+  text-align: center;
+  margin-bottom: 20px;
+  transition: transform 0.3s, box-shadow 0.3s;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.dashboard-paper:hover {
+  transform: scale(1.05);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+}
+
+.month-days {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.week-row {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+.week-row .MuiButton-root {
+  min-width: 40px;
+  margin: 2px;
+  font-size: 1.2rem;
+  position: relative;
+  color: black;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.week-row .MuiButton-root .task-indicator {
+  position: absolute;
+  bottom: 2px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: #5051F9;
+}
+
+.week-row .MuiButton-root.MuiButton-contained {
+  background-color: #DAD0FF !important;
+  color: black !important;
+}
+
+.week-row .MuiButton-root:hover {
+  transform: scale(1.1);
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+}
+
+.chart-section {
+  margin-top: 20px;
+  padding: 20px;
+}
+
+.chart-container {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.month-navigation {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.month-navigation .MuiButton-root {
+  min-width: 40px;
+}
+
+.month-display {
+  color: black;
+}

@@ -1,0 +1,153 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+.landing-page {
+    display: flex;
+    height: 100vh;
+}
+
+.image-section {
+    flex: 2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #f0f0f0;
+}
+
+.image-section img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.form-section {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start; /* Align items to the left */
+    padding: 2rem;
+    background-color: #fff;
+    width: 300px; /* Adjust width as needed */
+}
+
+.form-section h1 {
+    margin-bottom: 1rem;
+    align-self: flex-start; /* Align the title to the left */
+}
+
+form {
+    width: 100%; /* Ensure form takes full width */
+}
+
+.form-group {
+    margin-bottom: 1rem;
+    width: 100%;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 0.5rem;
+    box-sizing: border-box;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    transition: border-color 0.3s;
+    outline: none; /* Loại bỏ viền ngoài mặc định */
+}
+
+.form-group input:focus {
+    border-color: #4F4FFF; /* Màu viền khi focus */
+}
+
+.form-options {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin-bottom: 1rem;
+}
+
+.form-options .link {
+    color: #4F4FFF;
+    text-decoration: none;
+}
+
+.form-options .link:hover {
+    text-decoration: underline;
+}
+
+.cta-button,
+.google-button {
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    width: 100%;
+    margin-bottom: 1rem;
+    display: block; /* Ensure buttons take full width */
+}
+
+.cta-button:hover{
+    filter: brightness(0.9); /* Adjust brightness on hover */
+    background-color: #4F4FFF; /* Updated color */
+}
+.google-button:hover {
+    filter: brightness(0.9); /* Adjust brightness on hover */
+    background-color: #333333;
+}
+
+.cta-button {
+    background-color: #4F4FFF; /* Updated color */
+}
+
+.google-button {
+    background-color: #333333;
+}
+
+.separator {
+    width: 100%;
+    height: 1px;
+    background-color: #ccc;
+    margin: 1rem 0;
+}
+
+.form-section p {
+    margin-top: 1rem;
+    color: #000000; /* Updated color */
+    align-self: flex-start; /* Align text to the left */
+}
+
+.form-section .link {
+    color: #4F4FFF;
+    text-decoration: none;
+}
+
+.form-section .link:hover {
+    text-decoration: underline;
+}
+
+.checkbox{
+    width: 100%;
+    padding: 0.5rem;
+    box-sizing: border-box;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    transition: border-color 0.3s;
+    outline: none;
+}
+
+.google-button img {
+    width: 20px; /* Độ rộng mong muốn */
+    height: auto; /* Chiều cao tự động điều chỉnh */
+    margin-right: 5px; /* Khoảng cách giữa biểu tượng và văn bản */
+    vertical-align: middle; /* Căn giữa theo chiều dọc */
+}

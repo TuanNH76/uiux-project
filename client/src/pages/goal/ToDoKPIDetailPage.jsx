@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import './style.css';
+
 const ToDoKPIDetailPage = () => {
     const { goalId, kpiId } = useParams();
     const storedGoalData = JSON.parse(localStorage.getItem('goalData')); // Lấy dữ liệu từ localStorage
@@ -19,7 +20,8 @@ const ToDoKPIDetailPage = () => {
                 const updatedTasks = initialTasks.sort(sortTasks);
                 setTasks(updatedTasks);
                 setSelectedOptionalTasks(kpi.numberOfOptionalsToDo); // Initialize state with numberOfOptionalsToDo
-                setScore(kpi.score); // Set initial score from localStorage
+                const initialScore = calculateScore(updatedTasks, kpi.numberOfOptionalsToDo); // Calculate initial score
+                setScore(initialScore); // Set initial score
             }
         }
     }, []);
@@ -35,7 +37,8 @@ const ToDoKPIDetailPage = () => {
             const updatedTasks = initialTasks.sort(sortTasks);
             setTasks(updatedTasks);
             setSelectedOptionalTasks(kpi.numberOfOptionalsToDo); // Update selectedOptionalTasks
-            setScore(kpi.score); // Update score
+            const updatedScore = calculateScore(updatedTasks, kpi.numberOfOptionalsToDo); // Calculate updated score
+            setScore(updatedScore); // Update score
         }
     }, [localStorage.getItem('goalData')]);
 
@@ -142,7 +145,6 @@ const ToDoKPIDetailPage = () => {
         }
 
         if (totalScore < 0) totalScore = 0;
-        setScore(totalScore);
         return totalScore;
     };
 
@@ -175,9 +177,9 @@ const ToDoKPIDetailPage = () => {
         <div className="kpi-detail">
             <div className="nav-container">
                 <div className="nav">
-                    <Link to="/goals">Goals</Link>
+                    <Link to="/app/goals/">Goals</Link>
                     <span>/</span>
-                    <Link to={`/goals/${goalId}`}>{goal.title}</Link>
+                    <Link to={`/app/goals/${goalId}`}>{goal.title}</Link>
                     <span>/</span>
                     <span>{kpi.name}</span>
                 </div>
