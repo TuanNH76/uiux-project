@@ -15,13 +15,9 @@ function App() {
   const [goals, setGoals] = useState([]);
 
   useEffect(() => {
-    // Xóa dữ liệu localStorage khi trang được tải
     localStorage.clear();
-    // Thêm goalData vào localStorage
     localStorage.setItem('goalData', JSON.stringify(goalData));
-    // Lấy dữ liệu goal từ localStorage
     const storedGoalData = JSON.parse(localStorage.getItem('goalData'));
-    // Cập nhật state goals
     setGoals(storedGoalData);
   }, []);
 

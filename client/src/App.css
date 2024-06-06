@@ -1,4 +1,4 @@
-App.css
+/* App.css */
 body {
   margin: 0;
   font-family: 'Roboto', sans-serif;
@@ -75,7 +75,7 @@ body {
   z-index: 1000;
 }
 
-.sidebar.collapsed ~ .toggle-btn {
+.content.collapsed .toggle-btn {
   left: 60px;
 }
 

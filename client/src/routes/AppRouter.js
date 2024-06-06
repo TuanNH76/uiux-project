@@ -12,11 +12,11 @@ import { FaBars } from 'react-icons/fa';
 import Navbar from '../components/Navbar';
 import GoalDetailPage from '../pages/goal/GoalDetailPage';
 import ToDoKPIDetailPage from '../pages/goal/ToDoKPIDetailPage';
-import QuantityKPIDetailPage from '../pages/goal/QuantityKPIDetailPage'
+import QuantityKPIDetailPage from '../pages/goal/QuantityKPIDetailPage';
 import WeightedKPIDetailPage from '../pages/goal/WeightedKPIDetailPage';
 import NewGoalPage from '../pages/newgoal/NewGoalPage';
-import Assistant from '../pages/assistant/Assistant'
-import '../App';
+import Assistant from '../pages/assistant/Assistant';
+import '../App.css';
 
 function AppRouter() {
 
