@@ -102,13 +102,14 @@ const WeightedKPIDetailPage = () => {
                     <span>{kpi.name}</span>
                 </div>
             </div>
+
             <h2>{kpi.name}</h2>
             <p>{score.toFixed(2)}/100</p>
             <div className="kpi-chart-container">
                 <div className="kpi-chart" style={{ width: `${score}%` }}></div>
             </div>
             {kpi && (
-                <div>
+                <div className='KPI-infor'>
                     <p>Name: {kpi.name}</p>
                     <p>End date: {formatDate(kpi.to)}</p>
                 </div>

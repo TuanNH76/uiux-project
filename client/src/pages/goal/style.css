@@ -1023,6 +1023,23 @@ h4{
     color: black; /* Keep the text color black */
 }
 
+.KPI-infor {
+    border: 1px solid #ccc; /* Add a light border */
+    border-radius: 10px; /* Round the corners */
+    padding: 16px; /* Add padding inside the container */
+    margin: 10px 0; /* Add some margin above and below the container */
+    background-color: #f9f9f9; /* Light background color for contrast */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    font-family: Arial, sans-serif; /* Set a simple font family */
+    font-size: 16px; /* Set a comfortable font size */
+    max-width: 311px; /* Set a maximum width */
+}
+
+.KPI-infor p {
+    margin: 8px 0; /* Add vertical spacing between paragraphs */
+    color: #333; /* Dark grey color for text */
+}
+
 /* Responsive styles */
 @media (max-width: 768px) {
     .nav-container {
@@ -1152,5 +1169,22 @@ h4{
 
     .custom-button:hover {
       background-color: #3839D1; /* Màu khi hover */
+    }
+
+    .KPI-infor {
+      border: 1px solid #ccc; /* Add a light border */
+      border-radius: 10px; /* Round the corners */
+      padding: 16px; /* Add padding inside the container */
+      margin: 10px 0; /* Add some margin above and below the container */
+      background-color: #f9f9f9; /* Light background color for contrast */
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+      font-family: Arial, sans-serif; /* Set a simple font family */
+      font-size: 16px; /* Set a comfortable font size */
+      max-width: 218px; /* Set a maximum width */
+    }
+
+    .KPI-infor p {
+      margin: 8px 0; /* Add vertical spacing between paragraphs */
+      color: #333; /* Dark grey color for text */
     }
 }

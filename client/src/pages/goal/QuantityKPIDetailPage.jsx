@@ -186,13 +186,13 @@ const QuantityKPIDetailPage = () => {
                     <span>{kpiData?.name}</span>
                 </div>
             </div>
-            <h2>KPI Detail</h2>
+            <h2>{kpiData?.name}</h2>
             <p>{score.toFixed(2)}/100</p>
             <div className="kpi-chart-container">
                 <div className="kpi-chart" style={{ width: `${score}%` }}></div>
             </div>
             {kpiData && (
-                <div>
+                <div className="KPI-infor">
                     <p>Name: {kpiData.name}</p>
                     <p>End date: {formatDate(kpiData.to)}</p>
                     <p>Target: {kpiData.target}</p>
