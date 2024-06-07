@@ -1040,6 +1040,24 @@ h4{
     color: #333; /* Dark grey color for text */
 }
 
+.score-container {
+    display: flex;
+    justify-content: space-between; /* Canh ra hai đầu */
+    align-items: center; /* Canh giữa theo chiều dọc */
+    gap: 100px;
+}
+
+.score {
+    border-radius: 50%; /* Khoanh tròn .score */
+    background-color: #fff; /* Nền trắng */
+    width: 30px; /* Điều chỉnh kích thước .score */
+    height: 30px; /* Điều chỉnh kích thước .score */
+    display: flex; /* Hiển thị các phần tử trong .score theo hàng ngang */
+    justify-content: center; /* Canh giữa nội dung theo chiều ngang */
+    align-items: center; /* Canh giữa nội dung theo chiều dọc */
+    font-weight: bold; /* Chữ in đậm */
+}
+
 /* Responsive styles */
 @media (max-width: 768px) {
     .nav-container {
@@ -1186,5 +1204,12 @@ h4{
     .KPI-infor p {
       margin: 8px 0; /* Add vertical spacing between paragraphs */
       color: #333; /* Dark grey color for text */
+    }
+
+    .score-container {
+      display: flex;
+      justify-content: space-between; /* Canh ra hai đầu */
+      align-items: center; /* Canh giữa theo chiều dọc */
+      gap: 20px;
     }
 }
