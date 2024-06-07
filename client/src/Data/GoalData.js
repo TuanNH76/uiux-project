@@ -118,8 +118,8 @@ export const goalData = [
                     { id: "M88", name: 'Month 8', quantity: 3, completed: true, type: "Required", from: '2024-08-01T00:00', to: '2024-08-30T00:00', link: "https://shorturl.at/uJl78" },
                     { id: "M99", name: 'Month 9', quantity: 5, completed: false, type: "Required", from: '2024-09-01T00:00', to: '2024-09-30T00:00', link: "https://shorturl.at/uJl78" },
 		            { id: "M1010", name: 'Month 10', quantity: 5, completed: false, type: "Required", from: '2024-10-01T00:00', to: '2024-10-30T00:00', link: "https://shorturl.at/uJl78" },
-		            { id: "M1111", name: 'Month 11', quantity: 2, completed: false, type: "Required", from: '2024-11-01T00:00', to: '2024-11-30-T00:00', link: "https://shorturl.at/uJl78" },
-		            { id: "M1212", name: 'Month 12', quantity: 1, completed: false, type: "Required", from: '2024-12-01T00:00', to: '2024-12-30sT00:00', link: "https://shorturl.at/uJl78" },
+		            { id: "M1111", name: 'Month 11', quantity: 2, completed: false, type: "Required", from: '2024-11-01T00:00', to: '2024-11-30T00:00', link: "https://shorturl.at/uJl78" },
+		            { id: "M1212", name: 'Month 12', quantity: 1, completed: false, type: "Required", from: '2024-12-01T00:00', to: '2024-12-30T00:00', link: "https://shorturl.at/uJl78" },
                 ],
             },
             {
