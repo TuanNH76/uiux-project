@@ -134,7 +134,7 @@ body {
   }
 
   .content {
-    margin-left: 60px;
+    margin-left: 6px;
     width: calc(100% - 60px);
   }
 
@@ -155,7 +155,7 @@ body {
   }
 
   .content {
-    margin-left: 60px;
+    margin-left: 6px;
     width: calc(100% - 60px);
     padding: 20px; /* Reduced padding for smaller screens */
   }
