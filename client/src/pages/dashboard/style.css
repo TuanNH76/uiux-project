@@ -1,16 +1,22 @@
+/* Base styles */
+body {
+  margin: 0;
+  font-family: 'Roboto', sans-serif;
+  background-color: #f7f9fc;
+}
+
 .dashboard {
   padding: 20px;
 }
 
 .dashboard-title {
-  margin-bottom: 20px;
-  text-align: center;
+  margin-bottom: 30px;  /* Increased margin-bottom for more spacing */
+  text-align: left;
 }
 
 .dashboard-paper {
   padding: 20px;
   text-align: center;
-  margin-bottom: 20px;
   transition: transform 0.3s, box-shadow 0.3s;
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
 }
@@ -20,11 +26,39 @@
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
 }
 
+.date-grid {
+  height: 300px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 75%;  /* Add width to make it responsive */
+}
+
+.task-grid {
+  display: flex;
+  flex-direction: column;
+  height: 300px;
+  overflow-y: auto;
+}
+
+.task-list {
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+  margin-top: 10px;
+  height: 100%;
+}
+
+.task-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
 .month-days {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-bottom: 20px;
 }
 
 .week-row {
@@ -35,9 +69,9 @@
 }
 
 .week-row .MuiButton-root {
-  min-width: 40px;
+  min-width: 30px;
   margin: 2px;
-  font-size: 1.2rem;
+  font-size: 1rem;
   position: relative;
   color: black;
   transition: transform 0.3s, box-shadow 0.3s;
@@ -72,6 +106,7 @@
 .chart-container {
   max-width: 600px;
   margin: 0 auto;
+  width: 100%;  /* Ensure chart-container is responsive */
 }
 
 .month-navigation {
@@ -87,4 +122,65 @@
 
 .month-display {
   color: black;
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+  .date-grid {
+    width: 100%; /* Make date-grid full width on smaller screens */
+    height: auto; /* Adjust height to auto */
+  }
+
+  .task-grid {
+    height: auto; /* Adjust height to auto */
+  }
+
+  .dashboard {
+    padding: 10px; /* Reduce padding for smaller screens */
+  }
+
+  .chart-container {
+    width: 100%; /* Ensure chart-container is responsive */
+    max-width: 100%; /* Remove max-width constraint for smaller screens */
+  }
+}
+
+@media (max-width: 480px) {
+  .dashboard-title {
+    font-size: 1.5rem; /* Adjust title font size for smaller screens */
+    margin-bottom: 20px; /* Reduce margin-bottom */
+  }
+
+  .date-grid {
+    width: 100%; /* Full width on mobile */
+    padding: 10px; /* Adjust padding */
+  }
+
+  .task-grid {
+    width: 100%; /* Full width on mobile */
+    padding: 10px; /* Adjust padding */
+  }
+
+  .week-row .MuiButton-root {
+    min-width: 25px; /* Reduce button width for mobile */
+    margin: 1px; /* Reduce margin */
+    font-size: 0.8rem; /* Adjust font size */
+  }
+
+  .chart-section {
+    padding: 10px; /* Adjust padding for mobile */
+  }
+
+  .chart-container {
+    width: 100%; /* Ensure chart-container is responsive */
+    max-width: 100%; /* Remove max-width constraint for mobile screens */
+  }
+
+  .month-navigation .MuiButton-root {
+    min-width: 30px; /* Reduce button size */
+  }
+
+  .month-display {
+    font-size: 1rem; /* Adjust font size for month display */
+  }
 }

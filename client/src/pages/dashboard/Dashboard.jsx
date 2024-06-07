@@ -96,12 +96,12 @@ const Dashboard = () => {
 
   return (
     <div className="dashboard">
-      <Typography variant="h4" className="dashboard-title">
+      <h1 variant="h4" className="dashboard-title">
         Dashboard
-      </Typography>
+      </h1>
       <Grid container spacing={3}>
-        <Grid item xs={12} md={4}>
-          <Paper className="dashboard-paper">
+        <Grid item xs={12} md={4}> {/* Adjusted from md={3} to md={4} for more width */}
+          <Paper className="dashboard-paper date-grid">
             <div className="month-navigation">
               <IconButton onClick={handlePrevMonth}>
                 <ArrowBack />
@@ -131,13 +131,13 @@ const Dashboard = () => {
             </div>
           </Paper>
         </Grid>
-        <Grid item xs={12} md={8}>
-          <Paper className="dashboard-paper">
+        <Grid item xs={12} md={8}> {/* Adjusted from md={9} to md={8} */}
+          <Paper className="dashboard-paper task-grid">
             <Typography variant="h6">Tasks for {selectedDate.toDateString()}</Typography>
-            <List>
+            <List className="task-list">
               {tasks.length > 0 ? (
                 tasks.map(task => (
-                  <ListItem key={task.id}>
+                  <ListItem key={task.id} className="task-item">
                     <Checkbox
                       checked={task.completed}
                       onChange={() => handleTaskToggle(task.id)}
@@ -146,8 +146,8 @@ const Dashboard = () => {
                       primary={task.name}
                       secondary={
                         <>
-                          <Typography component="span">Time: {new Date(task.from).toLocaleTimeString()} - {new Date(task.to).toLocaleTimeString()}</Typography>
-                          <Typography component="span">KPI: {task.kpiName}</Typography>
+                          <Typography component="span">Time: {new Date(task.from).toLocaleTimeString()} - {new Date(task.to).toLocaleTimeString()}<br /></Typography>
+                          <Typography component="span">KPI: {task.kpiName}<br /></Typography>
                           <Typography component="span">Goal: {task.goalName}</Typography>
                         </>
                       }
@@ -170,7 +170,7 @@ const Dashboard = () => {
           </Paper>
         </Grid>
       </Grid>
-      <Grid container spacing={3} style={{ marginTop: '40px' }}>
+      <Grid container spacing={3} style={{ marginTop: '20px' }}>
         <Grid item xs={12}>
           <Paper className="dashboard-paper">
             <TaskChart />
