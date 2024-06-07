@@ -80,5 +80,17 @@ export const goalData = [
             { id: "K4", name: 'KPI 2', completed: true },
         ],
     },
+    {
+        id: "G3",
+        title: 'Goal 3',
+        from: '2023-07-01T10:00',
+        to: '2023-11-30T18:00',
+        role: 'Designer',
+        description: 'Design the new UI',
+        kpis: [
+            { id: "K3", name: 'KPI 1', completed: false },
+            { id: "K4", name: 'KPI 2', completed: true },
+        ],
+    },
     // Thêm các mục goal khác nếu cần
 ];
