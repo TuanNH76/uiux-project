@@ -189,6 +189,10 @@ const ToDoKPIDetailPage = () => {
             <div className="kpi-chart-container">
                 <div className="kpi-chart" style={{ width: `${score}%` }}></div>
             </div>
+            <div className='KPI-infor'>
+                <p>Name: {kpi.name}</p>
+                <p>End date: {formatDate(kpi.to)}</p>
+            </div>
             <div className="task-list">
                 <div class="two-type-task-containter">
                     <div className="required-tasks">
