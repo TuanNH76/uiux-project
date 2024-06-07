@@ -190,59 +190,61 @@ const ToDoKPIDetailPage = () => {
                 <div className="kpi-chart" style={{ width: `${score}%` }}></div>
             </div>
             <div className="task-list">
-                <div className="required-tasks">
-                    <h3>Required Tasks ({countCompletedTasks('Required')})</h3>
-                    {tasks
-                        .filter(task => task.type === 'Required')
-                        .map(task => (
-                            <div key={task.id} className={`task-widget ${task.completed ? 'completed' : new Date(task.to) < new Date() ? 'overdue' : ''}`}>
-                                <div className="checkbox-container">
-                                    <input
-                                        type="checkbox"
-                                        checked={task.completed}
-                                        onChange={() => handleTaskCompletion(task.id)}
-                                        className="custom-checkbox"
-                                    />
-                                    <div className="task-info">
-                                        <p>{task.name}</p>
-                                        <p>End date: {formatDate(task.to)}</p>
-                                        <a href={task.link} target="_blank" rel="noopener noreferrer">
-                                            <i className="fas fa-link"></i> Link
-                                        </a>
+                <div class="two-type-task-containter">
+                    <div className="required-tasks">
+                        <h3>Required Tasks ({countCompletedTasks('Required')})</h3>
+                        {tasks
+                            .filter(task => task.type === 'Required')
+                            .map(task => (
+                                <div key={task.id} className={`task-widget ${task.completed ? 'completed' : new Date(task.to) < new Date() ? 'overdue' : ''}`}>
+                                    <div className="checkbox-container">
+                                        <input
+                                            type="checkbox"
+                                            checked={task.completed}
+                                            onChange={() => handleTaskCompletion(task.id)}
+                                            className="custom-checkbox"
+                                        />
+                                        <div className="task-info">
+                                            <p>{task.name}</p>
+                                            <p>End date: {formatDate(task.to)}</p>
+                                            <a href={task.link} target="_blank" rel="noopener noreferrer">
+                                                <i className="fas fa-link"></i> Link
+                                            </a>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                        ))}
-                </div>
-                <div className="optional-tasks">
-                    <h3>Optional Tasks ({countCompletedTasks('Optional')})</h3>
-                    <div className="optional-tasks-select">
-                        <select value={selectedOptionalTasks} onChange={handleOptionalTaskSelection}>
-                            {optionalTaskOptions}
-                        </select>
-                        <span>/{totalOptionalTasks}</span>
+                            ))}
                     </div>
-                    {tasks
-                        .filter(task => task.type === 'Optional')
-                        .map(task => (
-                            <div key={task.id} className={`task-widget ${task.completed ? 'completed' : new Date(task.to) < new Date() ? 'overdue' : ''}`}>
-                                <div className="checkbox-container">
-                                    <input
-                                        type="checkbox"
-                                        checked={task.completed}
-                                        onChange={() => handleTaskCompletion(task.id)}
-                                        className="custom-checkbox"
-                                    />
-                                    <div className="task-info">
-                                        <p>{task.name}</p>
-                                        <p>End date: {formatDate(task.to)}</p>
-                                        <a href={task.link} target="_blank" rel="noopener noreferrer">
-                                            <i className="fas fa-link"></i> Link
-                                        </a>
+                    <div className="optional-tasks">
+                        <h3>Optional Tasks ({countCompletedTasks('Optional')})</h3>
+                        <div className="optional-tasks-select">
+                            <select value={selectedOptionalTasks} onChange={handleOptionalTaskSelection}>
+                                {optionalTaskOptions}
+                            </select>
+                            <span>/{totalOptionalTasks}</span>
+                        </div>
+                        {tasks
+                            .filter(task => task.type === 'Optional')
+                            .map(task => (
+                                <div key={task.id} className={`task-widget ${task.completed ? 'completed' : new Date(task.to) < new Date() ? 'overdue' : ''}`}>
+                                    <div className="checkbox-container">
+                                        <input
+                                            type="checkbox"
+                                            checked={task.completed}
+                                            onChange={() => handleTaskCompletion(task.id)}
+                                            className="custom-checkbox"
+                                        />
+                                        <div className="task-info">
+                                            <p>{task.name}</p>
+                                            <p>End date: {formatDate(task.to)}</p>
+                                            <a href={task.link} target="_blank" rel="noopener noreferrer">
+                                                <i className="fas fa-link"></i> Link
+                                            </a>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                        ))}
+                            ))}
+                    </div>
                 </div>
             </div>
         </div>
