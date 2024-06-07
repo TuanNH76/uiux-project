@@ -5,6 +5,7 @@ body {
 
 .landing-page {
     display: flex;
+    flex-direction: column; /* Change to column for better stacking on smaller screens */
     height: 100vh;
 }
 
@@ -27,15 +28,37 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: flex-start; /* Align items to the left */
+    align-items: center; /* Center items horizontally */
     padding: 2rem;
     background-color: #fff;
-    width: 300px; /* Adjust width as needed */
+    width: 100%; /* Adjust width for responsiveness */
+    max-width: 400px; /* Set max-width for better form appearance */
+    margin: 0 auto; /* Center the form section */
 }
 
-.form-section h1 {
+.form-section .header {
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Center logo and name horizontally */
+    margin-bottom: 2rem;
+    width: 100%;
+}
+
+.form-section .logo {
+    width: 50px; /* Adjust size as needed */
+    height: auto;
+    margin-right: 10px;
+}
+
+.form-section .app-name {
+    margin: 0;
+    font-size: 1.5rem;
+    color: #4F4FFF; /* Set application name color */
+}
+
+.form-section h2 {
     margin-bottom: 1rem;
-    align-self: flex-start; /* Align the title to the left */
+    align-self: flex-start; /* Align the subtitle to the left */
 }
 
 form {
@@ -59,11 +82,11 @@ form {
     border-radius: 5px;
     border: 1px solid #ccc;
     transition: border-color 0.3s;
-    outline: none; /* Loại bỏ viền ngoài mặc định */
+    outline: none; /* Remove default outline */
 }
 
 .form-group input:focus {
-    border-color: #4F4FFF; /* Màu viền khi focus */
+    border-color: #4F4FFF; /* Border color on focus */
 }
 
 .form-options {
@@ -96,10 +119,11 @@ form {
     display: block; /* Ensure buttons take full width */
 }
 
-.cta-button:hover{
+.cta-button:hover {
     filter: brightness(0.9); /* Adjust brightness on hover */
     background-color: #4F4FFF; /* Updated color */
 }
+
 .google-button:hover {
     filter: brightness(0.9); /* Adjust brightness on hover */
     background-color: #333333;
@@ -135,7 +159,7 @@ form {
     text-decoration: underline;
 }
 
-.checkbox{
+.checkbox {
     width: 100%;
     padding: 0.5rem;
     box-sizing: border-box;
@@ -146,8 +170,26 @@ form {
 }
 
 .google-button img {
-    width: 20px; /* Độ rộng mong muốn */
-    height: auto; /* Chiều cao tự động điều chỉnh */
-    margin-right: 5px; /* Khoảng cách giữa biểu tượng và văn bản */
-    vertical-align: middle; /* Căn giữa theo chiều dọc */
+    width: 20px; /* Desired width */
+    height: auto; /* Auto adjust height */
+    margin-right: 5px; /* Space between icon and text */
+    vertical-align: middle; /* Vertical align middle */
+}
+
+/* Media Queries for Responsiveness */
+
+@media (min-width: 768px) {
+    .landing-page {
+        flex-direction: row; /* Horizontal layout for larger screens */
+    }
+
+    .form-section {
+        width: 100%; /* Full width on larger screens */
+    }
+}
+
+@media (max-width: 767px) {
+    .image-section {
+        display: none; /* Hide image section on smaller screens */
+    }
 }

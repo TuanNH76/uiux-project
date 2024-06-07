@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import './style.css';
 import kpiImage from '../../images/KPI.webp'; // Adjust the path as necessary
 import googleImage from '../../images/Google__G__logo.svg.png';
+import logo from '../../images/Logo.png'; // Adjust the path as necessary
 
 const LandingPage = () => {
     const navigate = useNavigate();
@@ -19,7 +20,11 @@ const LandingPage = () => {
                 <img src={kpiImage} alt="KPI" />
             </div>
             <div className="form-section">
-                <h1>Nice to see you again</h1>
+                <div className="header">
+                    <img src={logo} alt="EduTrack Logo" className="logo" />
+                    <h1 className="app-name">EduTrack</h1>
+                </div>
+                <h2>Nice to see you again</h2>
                 <form onSubmit={handleLogin}>
                     <div className="form-group">
                         <label htmlFor="username">Username:</label>
@@ -32,7 +37,7 @@ const LandingPage = () => {
                     <div className="form-options">
                         <div>
                             <input type="checkbox" id="remember" name="remember" />
-                            <label clasName="checkbox" htmlFor="remember">Remember me</label>
+                            <label className="checkbox" htmlFor="remember">Remember me</label>
                         </div>
                         <a href="#forgot-password" className="link">Forgot password?</a>
                     </div>
