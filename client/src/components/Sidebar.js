@@ -1,38 +1,40 @@
 import React from 'react';
 import { List, ListItem, ListItemText } from '@mui/material';
-import { FaHome, FaBullseye, FaRobot, FaCalendarAlt, FaEnvelope, FaCog, FaPlusSquare } from 'react-icons/fa';
+import { FaHome, FaBullseye, FaRobot, FaCalendarAlt, FaCog, FaPlusSquare } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 import '../App.css';
+
 const Sidebar = ({ isCollapsed }) => {
   return (
     <div className={`sidebar ${isCollapsed ? 'collapsed' : ''}`}>
       <List>
         <ListItem button className="sidebar-item" component={Link} to="/app/dashboard">
           <FaHome />
-          <ListItemText primary="Dashboard" />
+          {!isCollapsed && <ListItemText primary="Dashboard" />}
         </ListItem>
         <ListItem button className="sidebar-item" component={Link} to="/app/goals">
           <FaBullseye />
-          <ListItemText primary="Goal" />
+          {!isCollapsed && <ListItemText primary="Goal" />}
         </ListItem>
         <ListItem button className="sidebar-item" component={Link} to="/app/assistant">
           <FaRobot />
-          <ListItemText primary="Assistant" />
+          {!isCollapsed && <ListItemText primary="Assistant" />}
         </ListItem>
         <ListItem button className="sidebar-item" component={Link} to="/app/schedule">
           <FaCalendarAlt />
-          <ListItemText primary="Schedule" />
+          {!isCollapsed && <ListItemText primary="Schedule" />}
         </ListItem>
         <ListItem button className="sidebar-item" component={Link} to="/app/newgoal">
           <FaPlusSquare />
-          <ListItemText primary="New Goal" />
+          {!isCollapsed && <ListItemText primary="New Goal" />}
         </ListItem>
         <ListItem button className="sidebar-item" component={Link} to="/app/setting">
           <FaCog />
-          <ListItemText primary="Setting" />
+          {!isCollapsed && <ListItemText primary="Setting" />}
         </ListItem>
       </List>
     </div>
   );
 };
-export default Sidebar
+
+export default Sidebar;

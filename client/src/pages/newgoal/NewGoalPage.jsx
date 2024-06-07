@@ -110,7 +110,7 @@ const NewGoalPage = () => {
               <h3>Goal Information</h3>
               <form onSubmit={handleSubmit}>
                 <div>
-                  <label htmlFor="title" className="new-required">Title</label>
+                  <label htmlFor="title" className="required">Title</label>
                   <input
                     type="text"
                     id="title"
@@ -121,7 +121,7 @@ const NewGoalPage = () => {
                   />
                 </div>
                 <div>
-                  <label htmlFor="from" className="new-required">From</label>
+                  <label htmlFor="from" className="required">From</label>
                   <input
                     type="datetime-local"
                     id="from"
@@ -132,7 +132,7 @@ const NewGoalPage = () => {
                   />
                 </div>
                 <div>
-                  <label htmlFor="to" className="new-required">To</label>
+                  <label htmlFor="to" className="required">To</label>
                   <input
                     type="datetime-local"
                     id="to"
@@ -185,7 +185,7 @@ const NewGoalPage = () => {
           <h3>New KPI</h3>
           <form>
             <div>
-              <label htmlFor="kpiName" className="new-required">KPI Name</label>
+              <label htmlFor="kpiName" className="required">KPI Name</label>
               <input
                 type="text"
                 id="kpiName"
@@ -196,7 +196,7 @@ const NewGoalPage = () => {
               />
             </div>
             <div>
-              <label htmlFor="typeKPI" className="new-required">KPI Type</label>
+              <label htmlFor="typeKPI" className="required">KPI Type</label>
               <select
                 id="typeKPI"
                 name="typeKPI"
@@ -212,7 +212,7 @@ const NewGoalPage = () => {
             </div>
             {newKpi.typeKPI === KPI_TYPE.TODO_KPI && (
               <div>
-                <label htmlFor="numberOfOptionalsToDo" className="new-required">Number of Optionals To Do</label>
+                <label htmlFor="numberOfOptionalsToDo" className="required">Number of Optionals To Do</label>
                 <input
                   type="number"
                   id="numberOfOptionalsToDo"
@@ -226,7 +226,7 @@ const NewGoalPage = () => {
             {newKpi.typeKPI === KPI_TYPE.QUANTITY_KPI && (
               <>
                 <div>
-                  <label htmlFor="target" className="new-required">Target</label>
+                  <label htmlFor="target" className="required">Target</label>
                   <input
                     type="number"
                     id="target"
@@ -237,7 +237,7 @@ const NewGoalPage = () => {
                   />
                 </div>
                 <div>
-                  <label htmlFor="unit" className="new-required">Unit</label>
+                  <label htmlFor="unit" className="required">Unit</label>
                   <input
                     type="text"
                     id="unit"
@@ -248,7 +248,7 @@ const NewGoalPage = () => {
                   />
                 </div>
                 <div>
-                  <label htmlFor="duration" className="new-required">Duration</label>
+                  <label htmlFor="duration" className="required">Duration</label>
                   <input
                     type="text"
                     id="duration"
@@ -259,7 +259,7 @@ const NewGoalPage = () => {
                   />
                 </div>
                 <div>
-                  <label htmlFor="split" className="new-required">Split</label>
+                  <label htmlFor="split" className="required">Split</label>
                   <input
                     type="text"
                     id="split"
@@ -274,7 +274,7 @@ const NewGoalPage = () => {
             {newKpi.typeKPI && (
               <>
                 <div>
-                  <label htmlFor="from" className="new-required">From</label>
+                  <label htmlFor="from" className="required">From</label>
                   <input
                     type="datetime-local"
                     id="from"
@@ -285,7 +285,7 @@ const NewGoalPage = () => {
                   />
                 </div>
                 <div>
-                  <label htmlFor="to" className="new-required">To</label>
+                  <label htmlFor="to" className="required">To</label>
                   <input
                     type="datetime-local"
                     id="to"
@@ -301,7 +301,7 @@ const NewGoalPage = () => {
             {newKpi.task.map((task, index) => (
               <div key={task.id} className="new-task">
                 <div>
-                  <label htmlFor={`taskName${task.id}`} className="new-required">Task Name</label>
+                  <label htmlFor={`taskName${task.id}`} className="required">Task Name</label>
                   <input
                     type="text"
                     id={`taskName${task.id}`}
@@ -312,7 +312,7 @@ const NewGoalPage = () => {
                   />
                 </div>
                 <div>
-                  <label htmlFor={`taskType${task.id}`} className="new-required">Task Type</label>
+                  <label htmlFor={`taskType${task.id}`} className="required">Task Type</label>
                   <select
                     id={`taskType${task.id}`}
                     name="type"
@@ -326,7 +326,7 @@ const NewGoalPage = () => {
                   </select>
                 </div>
                 <div>
-                  <label htmlFor={`taskFrom${task.id}`} className="new-required">Task From</label>
+                  <label htmlFor={`taskFrom${task.id}`} className="required">Task From</label>
                   <input
                     type="datetime-local"
                     id={`taskFrom${task.id}`}
@@ -337,7 +337,7 @@ const NewGoalPage = () => {
                   />
                 </div>
                 <div>
-                  <label htmlFor={`taskTo${task.id}`} className="new-required">Task To</label>
+                  <label htmlFor={`taskTo${task.id}`} className="required">Task To</label>
                   <input
                     type="datetime-local"
                     id={`taskTo${task.id}`}
