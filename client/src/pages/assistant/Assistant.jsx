@@ -27,7 +27,7 @@ const Assistant = () => {
             setIsBotTyping(true); // Show typing indicator
 
             try {
-                const response = await axios.post('http://localhost:8080/api/chat', {
+                const response = await axios.post('https://uiux-project-git-main-juny76s-projects.vercel.app/api/chat', {
                     user: 'haha', // default user
                     question: userMessage,
                 });
