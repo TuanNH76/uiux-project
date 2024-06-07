@@ -34,8 +34,8 @@ const GoalPage = () => {
             datasets: [
                 {
                     data: [completedKpis, totalKpis - completedKpis],
-                    backgroundColor: ['#36A2EB', '#FF6384'],
-                    hoverBackgroundColor: ['#36A2EB', '#FF6384'],
+                    backgroundColor: ['#23B2FF', '#FF6B57'], // Màu sắc bạn yêu cầu
+                    hoverBackgroundColor: ['#23B2FF', '#FF6B57'], // Màu sắc khi hover
                 },
             ],
         };
@@ -76,8 +76,9 @@ const GoalPage = () => {
                     Goals
                     <span>/</span>
                 </div>
+                <h1 class="goal-title">Your Goal</h1>
                 <div className="button-container">
-                    <button onClick={toggleGoals}>
+                    <button className="custom-button" onClick={toggleGoals}>
                         {showCompleted ? 'Show Incomplete Goals' : 'Show Completed Goals'}
                     </button>
                 </div>
