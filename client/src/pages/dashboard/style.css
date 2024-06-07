@@ -183,4 +183,8 @@ body {
   .month-display {
     font-size: 1rem; /* Adjust font size for month display */
   }
+
+  #dashboard-paper-chart{
+    width: 93.2%; /* Width adjustment for screens <= 480px */
+  }
 }

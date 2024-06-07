@@ -171,12 +171,12 @@ const Dashboard = () => {
         </Grid>
       </Grid>
       <Grid container spacing={3} style={{ marginTop: '20px' }}>
-        <Grid item xs={12}>
-          <Paper className="dashboard-paper">
-            <TaskChart />
-          </Paper>
-        </Grid>
-      </Grid>
+  <Grid item xs={12}>
+    <Paper className="dashboard-paper" id = "dashboard-paper-chart">
+      <TaskChart />
+    </Paper>
+  </Grid>
+</Grid>
     </div>
   );
 };
