@@ -10,7 +10,7 @@ body {
 
 .sidebar {
   width: 250px;
-  background: #f7f9fc;
+  background: #FFFFFF;
   padding: 20px;
   transition: transform 0.3s ease-in-out, width 0.3s;
   position: fixed;
@@ -19,6 +19,7 @@ body {
   height: calc(100% - 60px); /* Adjust for navbar height */
   transform: translateX(0);
   z-index: 1000;
+  box-shadow: 4px 0px 8px rgba(0, 0, 0, 0.1); /* Only right side shadow */
 }
 
 .sidebar.collapsed {
@@ -49,6 +50,26 @@ body {
   margin-right: 10px;
   transition: margin-right 0.3s;
 }
+/* Hover state */
+.sidebar-item:hover {
+  background-color: #CACAFF; /* Change to your desired hover color */
+  color: #333; /* Change to your desired hover text color */
+  border-radius: 10px;
+}
+
+/* Active state */
+.sidebar-item:active {
+  background-color: #CACAFF; /* Change to your desired active color */
+  color: #4F4FFF; /* Change to your desired active text color */
+  border-radius: 10px;
+}
+
+/* Focus state */
+.sidebar-item:focus {
+  background-color: #CACAFF; /* Change to your desired focus color */
+  color: #4F4FFF; /* Change to your desired focus text color */
+  border-radius: 10px;
+}
 
 .content {
   margin-top: 60px; /* Adjust for navbar height */
@@ -56,6 +77,7 @@ body {
   padding: 42px;
   transition: margin-left 0.3s;
   width: calc(100% - 250px);
+  background-color: #f7f9fc;
 }
 
 .content.collapsed {
