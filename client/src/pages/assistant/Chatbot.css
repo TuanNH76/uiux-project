@@ -20,27 +20,31 @@
     flex-grow: 1;
     overflow-y: auto;
     margin-bottom: 10px;
-    padding-right: 10px; /* Add padding to prevent text from touching the scrollbar */
+    padding-right: 10px; /* Thêm padding để ngăn văn bản chạm vào thanh cuộn */
 }
 
+/* Tin nhắn của người dùng */
 .user-message-container {
     display: flex;
-    justify-content: flex-end; /* Align user messages to the right */
-    margin: 5px 0;
-}
-
-.bot-message-container {
-    display: flex;
-    justify-content: flex-start; /* Align bot messages to the left */
-    margin: 5px 0;
+    justify-content: flex-end; /* Căn container tin nhắn người dùng về phía cuối container */
+    margin: 5px 10px 5px auto; /* Tăng khoảng cách bên trái và đẩy tin nhắn sang phải */
+    width: 50%; /* Đảm bảo container chiếm toàn bộ chiều rộng */
 }
 
 .user-message {
     background-color: #CACAFF;
     padding: 10px;
     border-radius: 10px;
-    max-width: 80%;
+    max-width: 80%; /* Độ rộng tối đa của tin nhắn */
     word-wrap: break-word;
+    text-align: left; /* Căn văn bản trong tin nhắn sang phải */
+}
+/* Tin nhắn của bot */
+.bot-message-container {
+    display: flex;
+    justify-content: flex-start; /* Căn tin nhắn bot sang trái */
+    margin: 5px 0;
+    width: 100%; /* Đảm bảo container chiếm toàn bộ chiều rộng */
 }
 
 .bot-message {
@@ -49,6 +53,7 @@
     border-radius: 10px;
     max-width: 80%;
     word-wrap: break-word;
+    text-align: left; /* Đảm bảo văn bản căn trái */
 }
 
 .chatbot-input-container {
