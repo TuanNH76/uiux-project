@@ -31,6 +31,7 @@ const TaskChart = () => {
 
   const options = {
     responsive: true,
+    maintainAspectRatio: false, // Prevent aspect ratio distortion
     plugins: {
       legend: {
         position: 'top',
@@ -40,9 +41,26 @@ const TaskChart = () => {
         text: 'Tasks, KPI, and Goals Done Over Time',
       },
     },
+    scales: {
+      y: {
+        beginAtZero: true,
+      },
+    },
   };
 
-  return <Line data={data} options={options} />;
+  const chartContainerStyle = {
+    position: 'relative',
+    width: '100%',
+    maxWidth: '800px',
+    height: '500px', // Increase the height of the chart
+    margin: 'auto',
+  };
+
+  return (
+    <div style={chartContainerStyle}>
+      <Line data={data} options={options} />
+    </div>
+  );
 };
 
 export default TaskChart;
