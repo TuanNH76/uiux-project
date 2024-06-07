@@ -33,7 +33,8 @@ const Assistant = () => {
                 });
 
                 const data = response.data;
-                const botResponse = { sender: 'bot', text: data.content };
+                const botResponseText = data.content.replace(/\n/g, '<br />'); // Replace all \n with <br />
+                const botResponse = { sender: 'bot', text: botResponseText };
                 setMessages(prevMessages => [...prevMessages, botResponse]);
             } catch (error) {
                 const errorMessage = { sender: 'bot', text: 'There was an error processing your request.' };
@@ -66,10 +67,16 @@ const Assistant = () => {
                             key={index}
                             className={message.sender === 'user' ? 'user-message-container' : 'bot-message-container'}
                         >
-                            <ListItemText
-                                primary={message.text}
-                                className={message.sender === 'user' ? 'user-message' : 'bot-message'}
-                            />
+                            {message.sender === 'user' ? (
+                                <ListItemText primary={message.text} className="user-message" />
+                            ) : (
+                                <ListItemText
+                                    primary={
+                                        <span dangerouslySetInnerHTML={{ __html: message.text }} /> // Render as HTML
+                                    }
+                                    className="bot-message"
+                                />
+                            )}
                         </ListItem>
                     ))}
                     {isBotTyping && (
